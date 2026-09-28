@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0c0c0a">
+<meta name="theme-color" content="#8ad6e3">
 <title>YaloséGames — Tourist Trap</title>
 <meta name="description" content="YaloséGames, estudio indie. Nuestro primer juego: Tourist Trap, un simulador de cocina tycoon en un chiringuito andaluz.">
 
@@ -22,17 +22,22 @@
 </head>
 <body>
 
-  <!-- ===== Portada: póster de bloques ===== -->
+  <!-- ===== Portada: toldo de chiringuito + cielo + key art ===== -->
   <header class="hero">
-    <h1 class="visually-hidden">YaloséGames</h1>
-    <div class="poster">
-      <div class="pb pb-a" aria-hidden="true"><span class="pb-word">YALOSÉ</span></div>
-      <div class="pb pb-dots"><span class="sticker">Estudio indie</span></div>
-      <div class="pb pb-b" aria-hidden="true"><span class="pb-word">GAMES</span></div>
-      <a class="pb pb-c" href="#tourist-trap">
-        <span class="pb-kicker">Nuestro primer juego</span>
-        <img class="pb-logo" src="assets/img/logo.png" alt="Tourist Trap">
-        <span class="pb-go">Descúbrelo ↓</span>
+    <div class="awning" aria-hidden="true"></div>
+    <div class="hero-grid">
+      <div class="hero-sky">
+        <p class="hero-kicker">Estudio indie de videojuegos</p>
+        <h1 class="studio"><span>YALOSÉ</span><span>GAMES</span></h1>
+        <p class="hero-sub">Nuestro primer juego: <strong>Tourist Trap</strong>, un simulador de cocina tycoon en un chiringuito andaluz.</p>
+        <div class="hero-actions">
+          <a class="btn btn-sea" href="#gameplay">▶ Ver gameplay</a>
+          <a class="btn btn-line" href="#tourist-trap">Descubre el juego ↓</a>
+        </div>
+      </div>
+      <a class="hero-art" href="#tourist-trap" aria-label="Tourist Trap">
+        <img src="assets/img/keyart.jpg" alt="Arte principal de Tourist Trap">
+        <span class="sticker">En desarrollo</span>
       </a>
     </div>
   </header>
@@ -69,7 +74,7 @@
         <p>Cada día tiene tres fases: preparas el local y compras mejoras, sirves en tiempo real antes de que se agote la paciencia de los clientes y, al cierre, recibes una nota que sube o baja tu reputación. Todo mientras las gaviotas lo llenan todo de «regalitos», se incendia la cocina o aparecen clientes como Karen, Poseidón o tres gaviotas dentro de una gabardina.</p>
       </div>
 
-      <h3 class="block-title">Gameplay Alpha 09/26</h3>
+      <h3 class="block-title" id="gameplay">Gameplay Alpha 09/26</h3>
       <div class="video">
         <video controls playsinline preload="none" poster="assets/img/title-screen.jpg" src="assets/video/tourist-trap-trailer.mp4"></video>
       </div>
