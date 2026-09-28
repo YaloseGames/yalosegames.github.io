@@ -156,14 +156,18 @@ main { max-width: 1400px; margin: 0 auto; }
    Decoración con los dibujos del juego
    ===================================================================== */
 .hero-copy { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 22px; }
-.sky-sun { position: absolute; top: 70px; right: 6%; width: clamp(90px, 10vw, 180px); z-index: 1; animation: sun-spin 40s linear infinite; }
+.sky-sun { position: absolute; top: 70px; right: 6%; width: clamp(90px, 10vw, 180px); aspect-ratio: 1; z-index: 3; cursor: pointer; }
+.sky-sun img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; transition: transform 0.7s cubic-bezier(0.34, 1.4, 0.64, 1), opacity 0.4s ease; }
+.sky-sun .sun { animation: sun-spin 40s linear infinite; }
+.sky-sun .moon { opacity: 0; transform: rotate(-120deg) scale(0.3); }
+.sky-sun:hover .sun { animation-duration: 6s; }
 .sky-cloud { position: absolute; z-index: 1; opacity: 0.95; pointer-events: none; }
 .cloud-1 { top: 16%; width: clamp(160px, 18vw, 340px); animation: cloud-drift 55s linear infinite; }
 .cloud-2 { bottom: 8%; width: clamp(130px, 14vw, 260px); animation: cloud-drift 75s linear infinite; animation-delay: -30s; }
 @keyframes cloud-drift { from { left: -30%; } to { left: 105%; } }
 @keyframes sun-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) {
-  .sky-sun, .sky-cloud { animation: none; }
+  .sky-sun .sun, .sky-cloud { animation: none; }
   .cloud-1 { left: 55%; } .cloud-2 { left: 8%; }
 }
 
@@ -211,3 +215,57 @@ main + .tiles-band { margin-top: 80px; }
 /* Logo del estudio (archivo original del equipo) */
 .studio-logo { margin: 0; }
 .studio-logo img { height: min(46vh, 440px); width: auto; max-width: 100%; filter: drop-shadow(6px 8px 0 rgba(15, 42, 82, 0.18)); }
+
+
+/* =====================================================================
+   Modo noche: se activa pulsando el sol (checkbox #night, paleta en .page)
+   ===================================================================== */
+.night-toggle { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+#night:focus-visible ~ .page .sky-sun { outline: 3px dashed var(--choco); outline-offset: 6px; border-radius: 50%; }
+
+#night:checked ~ .page {
+  --cream: #121a33;   /* fondo */
+  --foam: #1c2748;
+  --choco: #fff5dc;   /* texto y bordes */
+  --brown: #f0bc5e;   /* títulos: mostaza del logo del estudio */
+  --peach: #e38b5a;
+  --sky: #1f3263;
+  --sea: #f0bc5e;
+}
+#night:checked ~ .page .sky-sun .sun { opacity: 0; transform: rotate(160deg) scale(0.3); }
+#night:checked ~ .page .sky-sun .moon { opacity: 1; transform: none; }
+#night:checked ~ .page .sky-cloud { opacity: 0.3; }
+#night:checked ~ .page .hero-art img,
+#night:checked ~ .page .feature-art img { filter: brightness(0.7) saturate(0.8) hue-rotate(-10deg); }
+#night:checked ~ .page .hero-art::after { content: ''; position: absolute; inset: 0; background: rgba(18, 26, 51, 0.28); pointer-events: none; }
+#night:checked ~ .page .footer { background: #0b1224; color: #fff5dc; }
+#night:checked ~ .page .btn-sea { color: #121a33; }
+#night:checked ~ .page .studio-logo img { filter: drop-shadow(0 0 22px rgba(240, 188, 94, 0.35)); }
+
+/* Estrellas del cielo nocturno */
+.night-stars {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: 0;
+  background-image:
+    radial-gradient(2px 2px at 12% 22%, #fff5dc 50%, transparent 51%),
+    radial-gradient(2px 2px at 30% 12%, #fff5dc 50%, transparent 51%),
+    radial-gradient(3px 3px at 46% 30%, #f0bc5e 50%, transparent 51%),
+    radial-gradient(2px 2px at 62% 16%, #fff5dc 50%, transparent 51%),
+    radial-gradient(2px 2px at 80% 40%, #fff5dc 50%, transparent 51%),
+    radial-gradient(3px 3px at 20% 62%, #fff5dc 50%, transparent 51%),
+    radial-gradient(2px 2px at 54% 74%, #f0bc5e 50%, transparent 51%),
+    radial-gradient(2px 2px at 88% 70%, #fff5dc 50%, transparent 51%),
+    radial-gradient(2px 2px at 8% 88%, #fff5dc 50%, transparent 51%),
+    radial-gradient(3px 3px at 72% 90%, #fff5dc 50%, transparent 51%);
+  transition: opacity 0.8s ease;
+}
+#night:checked ~ .page .night-stars { opacity: 1; animation: stars-twinkle 3.5s ease-in-out infinite; }
+@keyframes stars-twinkle { 50% { opacity: 0.55; } }
+@media (prefers-reduced-motion: reduce) { #night:checked ~ .page .night-stars { animation: none; } }
+
+/* Transición suave del cambio de paleta */
+body, .hero, .hero-sky, .awning, .feature, .feature-body, .menu, .team li, .footer, .btn, .badge, .sticker, .video, .gallery a, .tiles-band {
+  transition: background-color 0.6s ease, color 0.6s ease, border-color 0.6s ease, box-shadow 0.6s ease;
+}
+
+/* .page lleva el fondo para que cambie con la paleta */
+.page { background: var(--cream); color: var(--choco); min-height: 100vh; transition: background-color 0.6s ease, color 0.6s ease; }

@@ -22,12 +22,21 @@
 </head>
 <body>
 
+<!-- Día / noche sin JavaScript: el sol (label) marca este checkbox y la paleta cambia en .page -->
+<input type="checkbox" id="night" class="night-toggle" aria-label="Modo noche">
+<div class="page">
+
   <!-- ===== Portada: toldo de chiringuito + cielo + key art ===== -->
   <header class="hero">
     <div class="awning" aria-hidden="true"></div>
     <div class="hero-grid">
       <div class="hero-sky">
-        <img class="sky-sun" src="assets/img/deco/sol.webp" alt="" aria-hidden="true">
+        <!-- El sol / la luna: interruptor de día y noche -->
+        <label for="night" class="sky-sun" title="¿Día o noche?">
+          <img class="sun" src="assets/img/deco/sol.webp" alt="">
+          <img class="moon" src="assets/img/deco/luna.webp" alt="">
+        </label>
+        <span class="night-stars" aria-hidden="true"></span>
         <img class="sky-cloud cloud-1" src="assets/img/deco/nube1.webp" alt="" aria-hidden="true">
         <img class="sky-cloud cloud-2" src="assets/img/deco/nube2.webp" alt="" aria-hidden="true">
         <div class="hero-copy">
@@ -145,5 +154,6 @@
     <span class="wip">Web en construcción</span>
   </footer>
 
+</div>
 </body>
 </html>
