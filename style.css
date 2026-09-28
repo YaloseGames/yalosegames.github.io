@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Inter:wght@500;600;700;800&display=swap');
+/* Títulos: Lilita One (Google Fonts, licencia libre OFL). Las fuentes del juego no se usan por licencia. */
 
 /* Paleta de Tourist Trap (sacada del key art y del logo) */
 :root {
@@ -44,18 +45,20 @@ img { display: block; max-width: 100%; }
 
 .hero-grid { flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 .hero-sky {
+  position: relative; overflow: hidden;
   display: flex; flex-direction: column; justify-content: center; gap: 22px;
   padding: 70px clamp(24px, 5vw, 96px) 50px;
   background-image: radial-gradient(rgba(255, 255, 255, 0.45) 22%, transparent 24%);
   background-size: 26px 26px;
 }
-.hero-kicker { margin: 0; font-family: 'Archivo Black', sans-serif; font-size: clamp(12px, 0.95vw, 20px); letter-spacing: 0.22em; text-transform: uppercase; color: var(--brown); }
+.hero-kicker { margin: 0; font-family: 'Lilita One', sans-serif; font-size: clamp(12px, 0.95vw, 20px); letter-spacing: 0.22em; text-transform: uppercase; color: var(--brown); }
 
 /* Letras como las del logo: relleno crema, contorno chocolate y sombra */
 .studio {
   margin: 0;
+  letter-spacing: 0.02em !important;
   display: flex; flex-direction: column;
-  font-family: 'Archivo Black', sans-serif;
+  font-family: 'Lilita One', sans-serif;
   font-size: min(9.5vw, 19vh);
   line-height: 0.9;
   letter-spacing: 0.01em;
@@ -70,7 +73,7 @@ img { display: block; max-width: 100%; }
 .hero-sub { margin: 0; max-width: 30em; font-size: clamp(16px, 1.2vw, 24px); line-height: 1.5; font-weight: 600; }
 .hero-sub strong { font-weight: 800; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
-.btn { font-family: 'Archivo Black', sans-serif; font-size: clamp(13px, 0.95vw, 19px); text-decoration: none; padding: 0.85em 1.3em; border: 3px solid var(--choco); box-shadow: 5px 5px 0 var(--choco); transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.btn { font-family: 'Lilita One', sans-serif; font-size: clamp(13px, 0.95vw, 19px); text-decoration: none; padding: 0.85em 1.3em; border: 3px solid var(--choco); box-shadow: 5px 5px 0 var(--choco); transition: transform 0.15s ease, box-shadow 0.15s ease; }
 .btn:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--choco); }
 .btn-sea { background: var(--sea); color: var(--cream); }
 .btn-line { background: var(--cream); color: var(--choco); }
@@ -80,7 +83,7 @@ img { display: block; max-width: 100%; }
 .hero-art:hover img { transform: scale(1.03); }
 .sticker {
   position: absolute; top: 60px; right: 28px;
-  font-family: 'Archivo Black', sans-serif; font-size: clamp(13px, 1vw, 20px); text-transform: uppercase;
+  font-family: 'Lilita One', sans-serif; font-size: clamp(13px, 1vw, 20px); text-transform: uppercase;
   background: var(--peach); color: var(--choco);
   border: 3px solid var(--choco); padding: 0.6em 0.9em;
   box-shadow: 5px 5px 0 var(--choco);
@@ -91,16 +94,16 @@ img { display: block; max-width: 100%; }
 main { max-width: 1400px; margin: 0 auto; }
 .section { padding: 90px 64px 20px; }
 .section-head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 40px; }
-.section-title { font-family: 'Archivo Black', sans-serif; font-size: clamp(32px, 5vw, 64px); text-transform: uppercase; margin: 0; color: var(--brown); }
+.section-title { font-family: 'Lilita One', sans-serif; font-size: clamp(32px, 5vw, 64px); text-transform: uppercase; margin: 0; color: var(--brown); }
 .head-dots { flex: 1; align-self: baseline; font-size: clamp(32px, 5vw, 64px); height: 0.72em; background-image: radial-gradient(var(--peach) 30%, transparent 32%); background-size: 0.24em 0.24em; background-position: 0 100%; }
 
 .feature { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); border: 3px solid var(--choco); box-shadow: 8px 8px 0 var(--choco); }
 .feature-art { position: relative; min-height: 380px; overflow: hidden; border-right: 3px solid var(--choco); }
 .feature-art > img:first-child { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .feature-logo { display: none; }
-.badge { position: absolute; top: 16px; left: 16px; font-family: 'Archivo Black', sans-serif; font-size: 12px; text-transform: uppercase; background: var(--choco); color: var(--cream); padding: 6px 10px; transform: rotate(-3deg); }
+.badge { position: absolute; top: 16px; left: 16px; font-family: 'Lilita One', sans-serif; font-size: 12px; text-transform: uppercase; background: var(--choco); color: var(--cream); padding: 6px 10px; transform: rotate(-3deg); }
 .feature-body { background: var(--sky); color: var(--choco); padding: clamp(24px, 3vw, 48px); display: flex; flex-direction: column; gap: 16px; }
-.feature-label { margin: 0; align-self: flex-start; font-family: 'Archivo Black', sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; background: var(--choco); color: var(--cream); padding: 5px 10px; transform: rotate(-2deg); }
+.feature-label { margin: 0; align-self: flex-start; font-family: 'Lilita One', sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; background: var(--choco); color: var(--cream); padding: 5px 10px; transform: rotate(-2deg); }
 .feature-summary { margin: 0; font-size: clamp(16px, 1.25vw, 22px); line-height: 1.55; font-weight: 600; }
 .feature-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-weight: 700; }
 .feature-list li { position: relative; padding-left: 18px; }
@@ -111,7 +114,7 @@ main { max-width: 1400px; margin: 0 auto; }
 .story { max-width: 780px; margin: 48px 0 0; font-size: 17px; line-height: 1.7; font-weight: 500; color: var(--brown); }
 .story p { margin: 0 0 14px; }
 
-.block-title { font-family: 'Archivo Black', sans-serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.06em; margin: 46px 0 16px; color: var(--brown); scroll-margin-top: 30px; }
+.block-title { font-family: 'Lilita One', sans-serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.06em; margin: 46px 0 16px; color: var(--brown); scroll-margin-top: 30px; }
 .video { background: #000; border: 3px solid var(--choco); box-shadow: 8px 8px 0 var(--sky); }
 .video video { width: 100%; aspect-ratio: 16 / 9; display: block; background: #000; }
 
@@ -123,7 +126,7 @@ main { max-width: 1400px; margin: 0 auto; }
 /* ---------- Equipo ---------- */
 .team { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; }
 .team li { padding: 22px; display: flex; flex-direction: column; gap: 6px; min-height: 120px; justify-content: flex-end; border: 3px solid var(--choco); }
-.team strong { font-family: 'Archivo Black', sans-serif; font-size: 18px; line-height: 1.15; }
+.team strong { font-family: 'Lilita One', sans-serif; font-size: 18px; line-height: 1.15; }
 .team span { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.8; }
 .team .c0 { background: var(--sky); }
 .team .c1 { background: var(--peach); }
@@ -131,7 +134,7 @@ main { max-width: 1400px; margin: 0 auto; }
 
 /* ---------- Pie ---------- */
 .footer { margin-top: 80px; background: var(--choco); color: var(--cream); padding: 30px 64px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 13px; font-weight: 800; }
-.wip { font-family: 'Archivo Black', sans-serif; text-transform: uppercase; letter-spacing: 0.12em; background: var(--peach); color: var(--choco); padding: 6px 12px; transform: rotate(-2deg); }
+.wip { font-family: 'Lilita One', sans-serif; text-transform: uppercase; letter-spacing: 0.12em; background: var(--peach); color: var(--choco); padding: 6px 12px; transform: rotate(-2deg); }
 
 /* ---------- Pantallas ---------- */
 @media (max-width: 1000px) {
@@ -148,4 +151,61 @@ main { max-width: 1400px; margin: 0 auto; }
   .section { padding: 60px 20px 10px; }
   .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .footer { padding: 24px 20px 32px; }
+}
+
+
+/* =====================================================================
+   Decoración con los dibujos del juego
+   ===================================================================== */
+.hero-copy { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 22px; }
+.sky-sun { position: absolute; top: 70px; right: 6%; width: clamp(90px, 10vw, 180px); z-index: 1; animation: sun-spin 40s linear infinite; }
+.sky-cloud { position: absolute; z-index: 1; opacity: 0.95; pointer-events: none; }
+.cloud-1 { top: 16%; width: clamp(160px, 18vw, 340px); animation: cloud-drift 55s linear infinite; }
+.cloud-2 { bottom: 8%; width: clamp(130px, 14vw, 260px); animation: cloud-drift 75s linear infinite; animation-delay: -30s; }
+@keyframes cloud-drift { from { left: -30%; } to { left: 105%; } }
+@keyframes sun-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .sky-sun, .sky-cloud { animation: none; }
+  .cloud-1 { left: 55%; } .cloud-2 { left: 8%; }
+}
+
+/* Franja de azulejo andaluz (textura del chiringuito del juego) */
+.tiles-band { height: 56px; background: url('assets/img/deco/azulejo.jpg') 0 0 / 56px 56px repeat-x; border-top: 3px solid var(--choco); border-bottom: 3px solid var(--choco); }
+.footer { margin-top: 0; }
+main + .tiles-band { margin-top: 80px; }
+
+/* Logo del juego en grande en lugar del título de sección */
+.tt-logo { display: block; width: min(520px, 80%); margin: 0 auto 40px; filter: drop-shadow(6px 8px 0 rgba(62, 19, 15, 0.18)); }
+
+/* La historia con la viñeta */
+.story { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(24px, 4vw, 60px); align-items: center; max-width: none; margin-top: 64px; }
+.story-text .block-title { margin-top: 0; }
+.comic { margin: 0; transform: rotate(-3deg); filter: drop-shadow(8px 8px 0 var(--peach)); }
+.comic img { width: 100%; height: auto; }
+.stars { display: flex; gap: 6px; margin: 4px 0 16px; }
+.stars img { width: 42px; height: auto; }
+
+/* La carta: pizarra de menú */
+.menu { position: relative; margin-top: 70px; background: var(--foam); border: 3px solid var(--choco); box-shadow: 8px 8px 0 var(--peach); padding: clamp(26px, 3vw, 44px); }
+.menu-title { margin: 0 0 26px; text-align: center; font-family: 'Lilita One', sans-serif; font-size: clamp(28px, 3.2vw, 46px); color: var(--brown); }
+.menu-espeto { position: absolute; top: -34px; right: 30px; width: clamp(140px, 16vw, 230px); transform: rotate(-8deg); }
+.menu-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px 22px; }
+.menu-grid li { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+.menu-grid img { width: 100%; max-width: 190px; height: 130px; object-fit: contain; transition: transform 0.25s ease; }
+.menu-grid li:hover img { transform: translateY(-6px) rotate(-4deg); }
+.menu-grid span { font-family: 'Lilita One', sans-serif; font-size: 20px; color: var(--choco); }
+
+/* Sombrilla junto al equipo */
+.section-team { position: relative; }
+.team-umbrella { position: absolute; right: 64px; top: 30px; width: clamp(90px, 9vw, 150px); z-index: 0; }
+.section-team .section-head, .section-team .team { position: relative; z-index: 1; }
+.section-team .section-head { padding-right: clamp(100px, 11vw, 170px); }
+
+@media (max-width: 800px) {
+  .story { grid-template-columns: 1fr; }
+  .comic { max-width: 280px; margin: 0 auto; }
+  .menu-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .menu-espeto { width: 120px; top: -26px; right: 12px; }
+  .team-umbrella { right: 20px; width: 80px; }
+  .sky-sun { top: 20px; }
 }

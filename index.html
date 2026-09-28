@@ -27,12 +27,17 @@
     <div class="awning" aria-hidden="true"></div>
     <div class="hero-grid">
       <div class="hero-sky">
-        <p class="hero-kicker">Estudio indie de videojuegos</p>
-        <h1 class="studio"><span>YALOSÉ</span><span>GAMES</span></h1>
-        <p class="hero-sub">Nuestro primer juego: <strong>Tourist Trap</strong>, un simulador de cocina tycoon en un chiringuito andaluz.</p>
-        <div class="hero-actions">
-          <a class="btn btn-sea" href="#gameplay">▶ Ver gameplay</a>
-          <a class="btn btn-line" href="#tourist-trap">Descubre el juego ↓</a>
+        <img class="sky-sun" src="assets/img/deco/sol.webp" alt="" aria-hidden="true">
+        <img class="sky-cloud cloud-1" src="assets/img/deco/nube1.webp" alt="" aria-hidden="true">
+        <img class="sky-cloud cloud-2" src="assets/img/deco/nube2.webp" alt="" aria-hidden="true">
+        <div class="hero-copy">
+          <p class="hero-kicker">Estudio indie de videojuegos</p>
+          <h1 class="studio"><span>YALOSÉ</span><span>GAMES</span></h1>
+          <p class="hero-sub">Nuestro primer juego: <strong>Tourist Trap</strong>, un simulador de cocina tycoon en un chiringuito andaluz.</p>
+          <div class="hero-actions">
+            <a class="btn btn-sea" href="#gameplay">▶ Ver gameplay</a>
+            <a class="btn btn-line" href="#tourist-trap">Descubre el juego ↓</a>
+          </div>
         </div>
       </div>
       <a class="hero-art" href="#tourist-trap" aria-label="Tourist Trap">
@@ -42,19 +47,17 @@
     </div>
   </header>
 
+  <div class="tiles-band" aria-hidden="true"></div>
+
   <main>
 
     <!-- ===== Tourist Trap ===== -->
     <section class="section" id="tourist-trap">
-      <div class="section-head">
-        <h2 class="section-title">Tourist Trap</h2>
-        <span class="head-dots" aria-hidden="true"></span>
-      </div>
+      <img class="tt-logo" src="assets/img/deco/logo.webp" alt="Tourist Trap">
 
       <div class="feature">
         <div class="feature-art">
           <img src="assets/img/keyart.jpg" alt="Arte principal de Tourist Trap">
-          <img class="feature-logo" src="assets/img/logo.png" alt="">
           <span class="badge">En desarrollo</span>
         </div>
         <div class="feature-body">
@@ -69,9 +72,35 @@
         </div>
       </div>
 
+      <!-- La historia, con viñeta del chef -->
       <div class="story">
-        <p>Compras un «Rasca y gana» en la gasolinera y te toca… un chiringuito. Mala suerte: era un «Rasca y paga». El chiringuito está en ruinas, viene con deuda y tu tío Rogelio Chiringelio sueña con verlo algún día en las 5 estrellas.</p>
-        <p>Cada día tiene tres fases: preparas el local y compras mejoras, sirves en tiempo real antes de que se agote la paciencia de los clientes y, al cierre, recibes una nota que sube o baja tu reputación. Todo mientras las gaviotas lo llenan todo de «regalitos», se incendia la cocina o aparecen clientes como Karen, Poseidón o tres gaviotas dentro de una gabardina.</p>
+        <figure class="comic">
+          <img src="assets/img/deco/chef1.webp" alt="Viñeta del chef de Tourist Trap, agobiado con una llave inglesa">
+        </figure>
+        <div class="story-text">
+          <h3 class="block-title">La historia</h3>
+          <p>Compras un «Rasca y gana» en la gasolinera y te toca… un chiringuito. Mala suerte: era un «Rasca y paga». El chiringuito está en ruinas, viene con deuda y tu tío Rogelio Chiringelio sueña con verlo algún día en las 5 estrellas.</p>
+          <p class="stars" aria-label="5 estrellas">
+            <img src="assets/img/deco/estrella.webp" alt=""><img src="assets/img/deco/estrella.webp" alt=""><img src="assets/img/deco/estrella.webp" alt=""><img src="assets/img/deco/estrella.webp" alt=""><img src="assets/img/deco/estrella.webp" alt="">
+          </p>
+          <p>Cada día tiene tres fases: preparas el local y compras mejoras, sirves en tiempo real antes de que se agote la paciencia de los clientes y, al cierre, recibes una nota que sube o baja tu reputación. Todo mientras las gaviotas lo llenan todo de «regalitos», se incendia la cocina o aparecen clientes como Karen, Poseidón o tres gaviotas dentro de una gabardina.</p>
+        </div>
+      </div>
+
+      <!-- La carta del chiringuito -->
+      <div class="menu">
+        <img class="menu-espeto" src="assets/img/deco/espeto.webp" alt="" aria-hidden="true">
+        <h3 class="menu-title">La carta del chiringuito</h3>
+        <ul class="menu-grid">
+          <li><img src="assets/img/deco/plato-boquerones.webp" alt="" loading="lazy"><span>Boquerones</span></li>
+          <li><img src="assets/img/deco/plato-calamares.webp" alt="" loading="lazy"><span>Calamares</span></li>
+          <li><img src="assets/img/deco/plato-paella.webp" alt="" loading="lazy"><span>Paella</span></li>
+          <li><img src="assets/img/deco/plato-gazpacho.webp" alt="" loading="lazy"><span>Gazpacho</span></li>
+          <li><img src="assets/img/deco/plato-patatas-bravas.webp" alt="" loading="lazy"><span>Patatas bravas</span></li>
+          <li><img src="assets/img/deco/plato-pinchitos.webp" alt="" loading="lazy"><span>Pinchitos</span></li>
+          <li><img src="assets/img/deco/plato-tomate.webp" alt="" loading="lazy"><span>Tomate aliñado</span></li>
+          <li><img src="assets/img/deco/plato-berenjenas.webp" alt="" loading="lazy"><span>Berenjenas</span></li>
+        </ul>
       </div>
 
       <h3 class="block-title" id="gameplay">Gameplay Alpha 09/26</h3>
@@ -91,7 +120,8 @@
     </section>
 
     <!-- ===== Equipo ===== -->
-    <section class="section" id="equipo">
+    <section class="section section-team" id="equipo">
+      <img class="team-umbrella" src="assets/img/deco/sombrilla.webp" alt="" aria-hidden="true">
       <div class="section-head">
         <h2 class="section-title">El equipo</h2>
         <span class="head-dots" aria-hidden="true"></span>
@@ -109,6 +139,7 @@
 
   </main>
 
+  <div class="tiles-band" aria-hidden="true"></div>
   <footer class="footer">
     <span>© 2026 YaloséGames</span>
     <span class="wip">Web en construcción</span>
