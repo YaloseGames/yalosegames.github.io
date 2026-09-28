@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#8ad6e3">
+<title>Tourist Trap — YaloséGames</title>
+<meta name="description" content="Simulador de Cocina Tycoon: lleva tu propio chiringuito andaluz y sobrevive a los clientes hambrientos.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tourist Trap — YaloséGames">
+<meta property="og:description" content="Simulador de Cocina Tycoon: lleva tu propio chiringuito andaluz y sobrevive a los clientes hambrientos.">
+<meta property="og:image" content="https://yalosegames.github.io/assets/img/keyart.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="p-tt">
+
+<!-- Día / noche sin JavaScript: el sol / la luna (label) marca este checkbox y la paleta cambia en .page -->
+<input type="checkbox" id="night" class="night-toggle" aria-label="Modo noche">
+<div class="page">
+
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="assets/img/deco/logo-yalose.webp" alt=""><span>YaloséGames</span></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="index.html">Inicio</a>
+      <a href="tourist-trap.html" class="is-active" aria-current="page">Tourist Trap</a>
+      <a href="quienes-somos.html">Quiénes somos</a>
+      <a href="contacto.html" class="nav-cta">Contacto</a>
+    </nav>
+    <label for="night" class="nav-sky" title="¿Día o noche?">
+      <img class="sun" src="assets/img/deco/sol.webp" alt="">
+      <img class="moon" src="assets/img/deco/luna.webp" alt="">
+    </label>
+  </header>
+
+  <section class="page-hero">
+    <div class="awning" aria-hidden="true"></div>
+    <img class="sky-cloud cloud-1" src="assets/img/deco/nube1.webp" alt="" aria-hidden="true">
+    <img class="sky-cloud cloud-2" src="assets/img/deco/nube2.webp" alt="" aria-hidden="true">
+    <span class="night-stars" aria-hidden="true"></span>
+    <div class="page-hero-copy">
+      <h1 class="page-title"><img class="page-logo" src="assets/img/deco/logo.webp" alt="Tourist Trap"></h1>
+      <p class="page-sub">Simulador de Cocina Tycoon · En desarrollo</p>
+    </div>
+  </section>
+  <div class="tiles-band" aria-hidden="true"></div>
+
+  <main>
+    <section class="section" id="tourist-trap">
+            <div class="feature">
+        <div class="feature-art">
+          <img src="assets/img/keyart.jpg" alt="Arte principal de Tourist Trap">
+          <span class="badge">En desarrollo</span>
+        </div>
+        <div class="feature-body">
+          <p class="feature-label">Simulador de Cocina Tycoon</p>
+          <p class="feature-summary">Lleva tu propio chiringuito andaluz, cocina a base de minijuegos y sobrevive a los clientes hambrientos.</p>
+          <ul class="feature-list">
+            <li>Gestión + Cocina en tiempo real</li>
+            <li>Minijuegos Variados de Cocina</li>
+            <li>Eventos caóticos: gaviotas, incendios, tsunamis…</li>
+          </ul>
+          <p class="feature-tags"><span>Unity</span><span>Management</span><span>Cooking</span><span>PC</span></p>
+        </div>
+      </div>
+
+      <!-- La historia, con viñeta del chef -->
+      <div class="story">
+        <figure class="comic">
+          <img src="assets/img/deco/chef1.webp" alt="Viñeta del chef de Tourist Trap, agobiado con una llave inglesa">
+        </figure>
+        <div class="story-text">
+          <h3 class="block-title">La historia</h3>
+          <p>Compras un «Rasca y gana» en la gasolinera y te toca… un chiringuito. Mala suerte: era un «Rasca y paga». El chiringuito está en ruinas, viene con deuda y tu tío Rogelio Chiringelio sueña con verlo algún día en las 5 estrellas.</p>
+          <p class="stars" aria-label="5 estrellas">
+            <img src="assets/img/deco/estrella.webp" alt=""><img src="assets/img/deco/estrella.webp" alt=""><img src="assets/img/deco/estrella.webp" alt=""><img src="assets/img/deco/estrella.webp" alt=""><img src="assets/img/deco/estrella.webp" alt="">
+          </p>
+          <p>Cada día tiene tres fases: preparas el local y compras mejoras, sirves en tiempo real antes de que se agote la paciencia de los clientes y, al cierre, recibes una nota que sube o baja tu reputación. Todo mientras las gaviotas lo llenan todo de «regalitos», se incendia la cocina o aparecen clientes como Karen, Poseidón o tres gaviotas dentro de una gabardina.</p>
+        </div>
+      </div>
+
+      <!-- La carta del chiringuito -->
+      <div class="menu">
+        <img class="menu-espeto" src="assets/img/deco/espeto.webp" alt="" aria-hidden="true">
+        <h3 class="menu-title">La carta del chiringuito</h3>
+        <ul class="menu-grid">
+          <li><img src="assets/img/deco/plato-boquerones.webp" alt="" loading="lazy"><span>Boquerones</span></li>
+          <li><img src="assets/img/deco/plato-calamares.webp" alt="" loading="lazy"><span>Calamares</span></li>
+          <li><img src="assets/img/deco/plato-paella.webp" alt="" loading="lazy"><span>Paella</span></li>
+          <li><img src="assets/img/deco/plato-gazpacho.webp" alt="" loading="lazy"><span>Gazpacho</span></li>
+          <li><img src="assets/img/deco/plato-patatas-bravas.webp" alt="" loading="lazy"><span>Patatas bravas</span></li>
+          <li><img src="assets/img/deco/plato-pinchitos.webp" alt="" loading="lazy"><span>Pinchitos</span></li>
+          <li><img src="assets/img/deco/plato-tomate.webp" alt="" loading="lazy"><span>Tomate aliñado</span></li>
+          <li><img src="assets/img/deco/plato-berenjenas.webp" alt="" loading="lazy"><span>Berenjenas</span></li>
+        </ul>
+      </div>
+
+      <h3 class="block-title" id="gameplay">Gameplay Alpha 09/26</h3>
+      <div class="video">
+        <video controls playsinline preload="none" poster="assets/img/title-screen.jpg" src="assets/video/tourist-trap-trailer.mp4"></video>
+      </div>
+
+      <h3 class="block-title">Capturas</h3>
+      <div class="gallery">
+        <a href="assets/img/beach-aerial.jpg" target="_blank" rel="noopener"><img src="assets/img/beach-aerial.jpg" alt="La playa desde arriba" loading="lazy"></a>
+        <a href="assets/img/chiringuito.jpg" target="_blank" rel="noopener"><img src="assets/img/chiringuito.jpg" alt="El chiringuito" loading="lazy"></a>
+        <a href="assets/img/service.jpg" target="_blank" rel="noopener"><img src="assets/img/service.jpg" alt="Servicio en tiempo real" loading="lazy"></a>
+        <a href="assets/img/minigame-pan.jpg" target="_blank" rel="noopener"><img src="assets/img/minigame-pan.jpg" alt="Minijuego de la sartén" loading="lazy"></a>
+        <a href="assets/img/minigame-espetos.jpg" target="_blank" rel="noopener"><img src="assets/img/minigame-espetos.jpg" alt="Minijuego de los espetos" loading="lazy"></a>
+        <a href="assets/img/concept-characters-1.jpg" target="_blank" rel="noopener"><img src="assets/img/concept-characters-1.jpg" alt="Arte conceptual de personajes" loading="lazy"></a>
+      </div>
+    </section>
+  </main>
+
+  <div class="tiles-band" aria-hidden="true"></div>
+  <footer class="footer">
+    <span>© 2026 YaloséGames · Málaga</span>
+    <nav class="foot-nav">
+      <a href="tourist-trap.html">Tourist Trap</a>
+      <a href="quienes-somos.html">Quiénes somos</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <span class="wip">Web en construcción</span>
+  </footer>
+
+</div>
+</body>
+</html>
