@@ -405,3 +405,8 @@ body, .hero, .hero-sky, .awning, .feature, .feature-body, .menu, .team li, .foot
 }
 
 #night:checked ~ .page .field select, #night:checked ~ .page .field input, #night:checked ~ .page .field textarea { color-scheme: dark; }
+
+/* Campos mal rellenados (al salir del campo o al intentar enviar) */
+.field input:user-invalid, .field select:user-invalid, .field textarea:user-invalid { border-color: #c4122f; box-shadow: 4px 4px 0 #c4122f; }
+.field-help { font-size: 13px; font-weight: 600; color: var(--brown); opacity: 0.75; }
+.field input:user-invalid + .field-help { color: #c4122f; opacity: 1; font-weight: 800; }

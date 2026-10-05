@@ -15,7 +15,7 @@
 <meta property="og:description" content="Contacta con YaloséGames: prensa, festivales, testers o simplemente saludar.">
 <meta property="og:image" content="https://yalosegames.github.io/assets/img/keyart.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=74270d85">
+<link rel="stylesheet" href="style.css?v=c3c54bb5">
 </head>
 <body class="p-contacto">
 
@@ -71,7 +71,8 @@
             </label>
             <label class="field">
               <span>Correo</span>
-              <input type="email" name="email" required maxlength="120" autocomplete="email">
+              <input type="email" name="email" required maxlength="120" autocomplete="email" pattern="[^@\s]+@[^@\s]+\.[A-Za-z]{2,}" title="Escribe un correo válido, por ejemplo nombre@dominio.com" aria-describedby="email-help">
+              <small class="field-help" id="email-help">Por ejemplo: nombre@dominio.com</small>
             </label>
           </div>
           <label class="field">
