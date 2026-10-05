@@ -363,3 +363,45 @@ body, .hero, .hero-sky, .awning, .feature, .feature-body, .menu, .team li, .foot
   .team-umbrella { width: 64px; margin-bottom: -30px; }
   .foot-nav { flex-wrap: wrap; }
 }
+
+
+/* =====================================================================
+   Formulario de contacto
+   ===================================================================== */
+.contact { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: start; }
+.contact-side { display: flex; flex-direction: column; gap: 28px; }
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.contact-form .contact-art { top: 10px; right: -30px; width: 150px; }
+.contact-form .block-title, .contact-form > p { margin-bottom: 0; padding-right: 110px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field span { font-family: 'Lilita One', sans-serif; font-size: 17px; color: var(--brown); }
+.field input, .field select, .field textarea {
+  font: inherit; font-size: 16px; font-weight: 500;
+  color: var(--choco); background: var(--cream);
+  border: 3px solid var(--choco); border-radius: 0;
+  padding: 10px 12px;
+  box-shadow: 4px 4px 0 var(--peach);
+  transition: box-shadow 0.15s ease, background-color 0.6s ease, color 0.6s ease;
+}
+.field textarea { resize: vertical; min-height: 140px; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; box-shadow: 4px 4px 0 var(--sea); }
+.form-note { margin: 0; font-size: 14px !important; opacity: 0.8; }
+.contact-form button { align-self: flex-start; cursor: pointer; font-size: 18px; }
+.honey { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+/* Gracias */
+.thanks { max-width: 640px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.thanks p { font-size: 20px; font-weight: 600; color: var(--brown); margin: 0; }
+.thanks .stars img { width: 48px; }
+
+@media (max-width: 1000px) {
+  .contact { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .field-row { grid-template-columns: 1fr; }
+  .contact-form .block-title, .contact-form > p { padding-right: 70px; }
+  .contact-form .contact-art { width: 100px; }
+}
+
+#night:checked ~ .page .field select, #night:checked ~ .page .field input, #night:checked ~ .page .field textarea { color-scheme: dark; }
