@@ -142,6 +142,19 @@ Si hace falta otra fuente, que sea de Google Fonts con licencia OFL, y hay que a
 
 Todo sale de los assets del juego (`assets/img/deco/`): sol, luna, nubes, estrella, espeto, sombrilla, chefs, platos, azulejo y logos.
 
+**Props de Dani y Ernesto** (`assets/img/deco/props/`), recortados de sus láminas del Trello del equipo. Solo se usan los que están **a color**, no los bocetos grises.
+
+| Dónde | Props |
+|---|---|
+| Portada | `.beach`: playa con palmeras, tumbona, sombrilla de rayas, barca de espetos, nevera «FRIO FRIO» y conchas |
+| Tourist Trap | Guirnalda de bombillas sobre la carta; Poseidón junto a la historia; gramófono junto a la pizarra; altavoz sobre el vídeo |
+| Quiénes somos | Servilletero «CHIRINGELIOS», cerveza, copa y cubata; banderines del Guirilencia F.C. sobre el equipo |
+| Contacto | Radio en «Kit de prensa»; pecera en «También en» |
+| Gracias | Trofeo de oro |
+| Blog | Tele en la cabecera y guirnalda de banderines |
+
+Hay más en la carpeta, sin usar todavía: trofeos de bronce y plata, banderines sueltos, lámpara roja, caracolas, palmera baja.
+
 - **Toldo** (`.awning`): rayas melocotón y crema de 64px, con el borde festoneado hecho con `radial-gradient`.
 - **Azulejo** (`.tiles-band`): franja de 56px con borde chocolate arriba y abajo. Va antes y después del contenido.
 - **Nubes:** cruzan despacio (55–75s) por encima o por debajo del texto, nunca encima.
