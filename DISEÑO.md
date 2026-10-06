@@ -127,6 +127,9 @@ Si hace falta otra fuente, que sea de Google Fonts con licencia OFL, y hay que a
 | Miembro del equipo | `.team li.c0/.c1/.c2` | Alterna cielo / melocotón / espuma |
 | Campo | `label.field` > `span` + `input` | Etiqueta en Lilita, campo crema con sombra melocotón |
 | Pista de campo | `small.field-help` | Se pone roja si el campo es inválido |
+| Tarjeta de post | `.post-card.post-card-c0/c1/c2` | Cielo / melocotón / espuma. La más reciente ocupa todo el ancho |
+| Pegatinas de post | `.post-num` + `.post-date` | «DEVLOG #N» en chocolate y fecha en crema, giradas |
+| Cuerpo de post | `.post-body` | Ancho de 860px e Inter de 18px. Imágenes con sombra melocotón, `>` como tarjeta y `---` como línea de puntos |
 
 **Formularios:** van a FormSubmit. Llevan los campos ocultos `_subject`, `Origen`, `_next` (que apunta a `gracias.html`) y `_template=table`, más el señuelo `_honey`.
 
@@ -160,9 +163,10 @@ No metas iconos genéricos, emojis ni ilustraciones que no sean del juego.
 
 ## 9. Reglas técnicas
 
+- **Blog con Jekyll:** GitHub Pages construye `_posts/`, `_layouts/` y `blog/index.html`. Las `.html` sin cabecera YAML se copian tal cual. Cómo se escribe un post: en `BLOG.md`. En las plantillas del blog las rutas son absolutas (`/style.css`, `/assets/…`). **No vuelvas a crear `.nojekyll`**, porque apagaría el blog.
 - **Cero JavaScript.** La CSP tiene `script-src 'none'`. El modo noche es un checkbox (`#night`) con el selector `#night:checked ~ .page`. **No uses `:root:has()`**, porque Chrome no repinta los fondos.
 - **CSP** en cada `.html`: solo `self`, Google Fonts y `form-action https://formsubmit.co`.
-- **Caché:** si cambias `style.css`, ejecuta `python versionar.py` antes de subir.
+- **Caché:** si cambias `style.css`, ejecuta `python versionar.py` antes de subir. También actualiza `_layouts/`.
 - **HTML bien anidado:** un `</div>` de más ya dejó la portada sin imagen una vez.
 - **Página nueva:** copia el esqueleto de una existente, con su CSP, sus metas OG y el enlace activo en `.nav`.
 

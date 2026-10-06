@@ -1,0 +1,23 @@
+# GitHub Pages construye con Jekyll SOLO el blog.
+# Las páginas .html normales (index, tourist-trap…) no llevan cabecera YAML, así que se copian tal cual.
+
+title: YaloséGames
+lang: es
+url: https://yalosegames.github.io
+timezone: Europe/Madrid
+
+# Blog oculto: sin enlace en el menú y con «noindex» para que Google no lo muestre.
+# Para abrirlo al público: pon true y añade «Blog» al menú de las páginas (ver BLOG.md).
+blog_publico: false
+
+permalink: /blog/:title/
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+exclude:
+  - README.md
+  - DISEÑO.md
+  - BLOG.md
+  - versionar.py

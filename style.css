@@ -410,3 +410,72 @@ body, .hero, .hero-sky, .awning, .feature, .feature-body, .menu, .team li, .foot
 .field input:user-invalid, .field select:user-invalid, .field textarea:user-invalid { border-color: #c4122f; box-shadow: 4px 4px 0 #c4122f; }
 .field-help { font-size: 13px; font-weight: 600; color: var(--brown); opacity: 0.75; }
 .field input:user-invalid + .field-help { color: #c4122f; opacity: 1; font-weight: 800; }
+
+
+/* =====================================================================
+   Blog / Devlog (Jekyll: _layouts/, _posts/, blog/index.html)
+   ===================================================================== */
+.post-stickers { margin: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.post-num, .post-date { font-family: 'Lilita One', sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; padding: 6px 12px; border: 3px solid var(--choco); }
+.post-num { background: var(--choco); color: var(--cream); transform: rotate(-3deg); }
+.post-date { background: var(--cream); color: var(--choco); transform: rotate(2deg); }
+.post-hero .page-hero-copy { padding-top: 28px; }
+.post-title { font-size: clamp(36px, 5vw, 76px); max-width: 16em; margin-left: auto; margin-right: auto; }
+
+/* Lista de entradas */
+.post-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px; }
+.post-card { display: flex; flex-direction: column; text-decoration: none; color: var(--choco); border: 3px solid var(--choco); box-shadow: 8px 8px 0 var(--choco); transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.6s ease; }
+.post-card:hover { transform: translate(-3px, -3px); box-shadow: 11px 11px 0 var(--choco); }
+.post-card-c0 { background: var(--sky); }
+.post-card-c1 { background: var(--peach); }
+.post-card-c2 { background: var(--foam); }
+.post-card-img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-bottom: 3px solid var(--choco); }
+.post-card-body { flex: 1; display: flex; flex-direction: column; gap: 12px; padding: 24px; }
+.post-card-body .post-stickers { justify-content: flex-start; }
+.post-card h2 { margin: 6px 0 0; font-family: 'Lilita One', sans-serif; font-size: clamp(24px, 2.2vw, 34px); line-height: 1.1; color: var(--brown); }
+.post-card p { margin: 0; font-weight: 600; line-height: 1.5; }
+/* La entrada más reciente va destacada a todo el ancho */
+.post-card:first-child { grid-column: 1 / -1; flex-direction: row; }
+.post-card:first-child .post-card-img { width: 55%; aspect-ratio: auto; min-height: 320px; border-bottom: none; border-right: 3px solid var(--choco); }
+.post-card:first-child .post-card-body { padding: clamp(24px, 3vw, 44px); justify-content: center; }
+.post-card:first-child h2 { font-size: clamp(32px, 3.4vw, 52px); }
+.post-card:first-child p { font-size: 18px; }
+.post-empty { font-family: 'Lilita One', sans-serif; font-size: 24px; color: var(--brown); text-align: center; }
+
+/* Entrada */
+.post { max-width: 860px; margin: 0 auto; }
+.post-cover { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border: 3px solid var(--choco); box-shadow: 8px 8px 0 var(--sky); margin-bottom: 48px; }
+.post-body { font-size: 18px; line-height: 1.75; font-weight: 500; color: var(--brown); }
+.post-body > * { margin: 0 0 20px; }
+.post-body h2 { margin: 52px 0 16px; font-family: 'Lilita One', sans-serif; font-size: clamp(26px, 2.6vw, 36px); line-height: 1.1; font-weight: 400; color: var(--brown); }
+.post-body h3 { margin: 36px 0 12px; font-family: 'Lilita One', sans-serif; font-size: 22px; font-weight: 400; color: var(--choco); }
+.post-body strong { font-weight: 800; color: var(--choco); }
+.post-body a { color: var(--choco); text-decoration-color: var(--peach); text-decoration-thickness: 3px; text-underline-offset: 3px; }
+.post-body a:hover { text-decoration-color: var(--sea); }
+.post-body img, .post-body video { display: block; width: 100%; height: auto; border: 3px solid var(--choco); box-shadow: 8px 8px 0 var(--peach); background: #000; }
+.post-body p:has(> img:only-child) { margin: 36px 0 14px; }
+/* Pie de foto: una línea entera en cursiva */
+.post-body p > em:only-child { display: block; text-align: center; font-size: 15px; font-weight: 600; opacity: 0.8; }
+.post-body ul, .post-body ol { padding-left: 0; list-style: none; }
+.post-body ul li, .post-body ol li { position: relative; padding-left: 22px; margin-bottom: 8px; }
+.post-body ul li::before { content: ''; position: absolute; left: 0; top: 0.65em; width: 8px; height: 8px; background: var(--choco); }
+.post-body ol { counter-reset: paso; }
+.post-body ol li { counter-increment: paso; padding-left: 30px; }
+.post-body ol li::before { content: counter(paso) '.'; position: absolute; left: 0; font-family: 'Lilita One', sans-serif; color: var(--choco); }
+.post-body blockquote { margin: 32px 0; padding: 20px 24px; background: var(--foam); border: 3px solid var(--choco); box-shadow: 6px 6px 0 var(--sky); font-weight: 600; transform: rotate(-0.6deg); }
+.post-body blockquote p { margin: 0; }
+.post-body hr { border: none; height: 0.6em; margin: 48px 0; font-size: 40px; background-image: radial-gradient(var(--peach) 30%, transparent 32%); background-size: 0.3em 0.3em; background-repeat: space; }
+.post-body code { font-size: 0.9em; background: var(--foam); border: 2px solid var(--choco); padding: 1px 6px; }
+.post-tags { display: flex; flex-wrap: wrap; gap: 6px 8px; margin: 40px 0 0; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; }
+.post-tags span:not(:last-child)::after { content: '/'; margin-left: 8px; opacity: 0.45; }
+.post-nav { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 40px; padding-top: 28px; border-top: 3px solid var(--choco); }
+
+#night:checked ~ .page .post-body img, #night:checked ~ .page .post-cover, #night:checked ~ .page .post-card-img { filter: brightness(0.85); }
+
+@media (max-width: 800px) {
+  .post-list { grid-template-columns: 1fr; }
+  .post-card:first-child { flex-direction: column; }
+  .post-card:first-child .post-card-img { width: 100%; min-height: 0; aspect-ratio: 16 / 9; border-right: none; border-bottom: 3px solid var(--choco); }
+  .post-body { font-size: 17px; }
+  .post-nav { justify-content: center; }
+}

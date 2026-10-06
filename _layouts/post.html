@@ -1,0 +1,36 @@
+---
+layout: base
+---
+  <section class="page-hero post-hero">
+    <div class="awning" aria-hidden="true"></div>
+    <img class="sky-cloud cloud-1" src="/assets/img/deco/nube1.webp" alt="" aria-hidden="true">
+    <img class="sky-cloud cloud-2" src="/assets/img/deco/nube2.webp" alt="" aria-hidden="true">
+    <span class="night-stars" aria-hidden="true"></span>
+    <div class="page-hero-copy">
+      <p class="post-stickers">
+        <span class="post-num">Devlog #{{ page.numero }}</span>
+        <time class="post-date" datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%d/%m/%Y' }}</time>
+      </p>
+      <h1 class="page-title post-title">{{ page.title }}</h1>
+      {% if page.autor %}<p class="page-sub">Por {{ page.autor }}</p>{% endif %}
+    </div>
+  </section>
+  <div class="tiles-band" aria-hidden="true"></div>
+
+  <main>
+    <article class="section post">
+      {% if page.portada %}<img class="post-cover" src="{{ page.portada }}" alt="">{% endif %}
+      <div class="post-body">
+{{ content }}
+      </div>
+      {% if page.etiquetas %}
+      <p class="post-tags">{% for e in page.etiquetas %}<span>{{ e }}</span>{% endfor %}</p>
+      {% endif %}
+
+      <nav class="post-nav" aria-label="Más entradas">
+        {% if page.previous %}<a class="btn btn-line" href="{{ page.previous.url }}">← Devlog #{{ page.previous.numero }}</a>{% else %}<span></span>{% endif %}
+        <a class="btn btn-sea" href="/blog/">Todas las entradas</a>
+        {% if page.next %}<a class="btn btn-line" href="{{ page.next.url }}">Devlog #{{ page.next.numero }} →</a>{% else %}<span></span>{% endif %}
+      </nav>
+    </article>
+  </main>

@@ -1,0 +1,41 @@
+---
+layout: base
+title: Devlog
+resumen: Diario de desarrollo de Tourist Trap, de YaloséGames.
+---
+  <section class="page-hero">
+    <div class="awning" aria-hidden="true"></div>
+    <img class="sky-cloud cloud-1" src="/assets/img/deco/nube1.webp" alt="" aria-hidden="true">
+    <img class="sky-cloud cloud-2" src="/assets/img/deco/nube2.webp" alt="" aria-hidden="true">
+    <span class="night-stars" aria-hidden="true"></span>
+    <div class="page-hero-copy">
+      <h1 class="page-title">Devlog</h1>
+      <p class="page-sub">Así va Tourist Trap, paso a paso</p>
+    </div>
+  </section>
+  <div class="tiles-band" aria-hidden="true"></div>
+
+  <main>
+    <section class="section">
+      {% if site.posts.size == 0 %}
+      <p class="post-empty">Todavía no hay entradas. ¡Pronto!</p>
+      {% else %}
+      <div class="post-list">
+        {% for post in site.posts %}
+        <a class="post-card post-card-c{{ forloop.index0 | modulo: 3 }}" href="{{ post.url }}">
+          {% if post.portada %}<img class="post-card-img" src="{{ post.portada }}" alt="" loading="lazy">{% endif %}
+          <div class="post-card-body">
+            <p class="post-stickers">
+              <span class="post-num">Devlog #{{ post.numero }}</span>
+              <time class="post-date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%d/%m/%Y' }}</time>
+            </p>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.resumen }}</p>
+            <span class="teaser-go">Leer →</span>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </section>
+  </main>
