@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; object-src 'none'; base-uri 'self'; form-action https://formsubmit.co">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#8ad6e3">
+<title>Contact — YaloséGames</title>
+<meta name="description" content="Get in touch with YaloséGames: press, festivals, playtesters or just saying hi.">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta property="og:locale" content="en_GB">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact — YaloséGames">
+<meta property="og:description" content="Get in touch with YaloséGames: press, festivals, playtesters or just saying hi.">
+<meta property="og:image" content="https://yalosegames.github.io/assets/img/keyart.jpg">
+<link rel="alternate" hreflang="es" href="https://yalosegames.github.io/contacto.html">
+<link rel="alternate" hreflang="en" href="https://yalosegames.github.io/en/contacto.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../style.css?v=217001a7">
+</head>
+<body class="p-contacto">
+
+<!-- Día / noche sin JavaScript: el sol / la luna (label) marca este checkbox y la paleta cambia en .page -->
+<input type="checkbox" id="night" class="night-toggle" aria-label="Night mode">
+<div class="page">
+
+  <header class="topbar">
+    <a class="brand" href="index.html"><img src="../assets/img/deco/logo-yalose.webp" alt=""><span>YaloséGames</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="tourist-trap.html">Tourist Trap</a>
+      <a href="quienes-somos.html">About us</a>
+      <a href="contacto.html" class="nav-cta is-active" aria-current="page">Contact</a>
+    </nav>
+    <a class="lang-switch" href="../contacto.html" hreflang="es" lang="es" aria-label="Leer esta página en español">ES</a>
+    <label for="night" class="nav-sky" title="Day or night?">
+      <img class="sun" src="../assets/img/deco/sol.webp" alt="">
+      <img class="moon" src="../assets/img/deco/luna.webp" alt="">
+    </label>
+  </header>
+
+  <section class="page-hero">
+    <div class="awning" aria-hidden="true"></div>
+    <img class="sky-cloud cloud-1" src="../assets/img/deco/nube1.webp" alt="" aria-hidden="true">
+    <img class="sky-cloud cloud-2" src="../assets/img/deco/nube2.webp" alt="" aria-hidden="true">
+    <span class="night-stars" aria-hidden="true"></span>
+    <div class="page-hero-copy">
+      <h1 class="page-title">Get in touch</h1>
+      <p class="page-sub">Press, festivals, playtesters or just saying hi</p>
+    </div>
+  </section>
+  <div class="tiles-band" aria-hidden="true"></div>
+
+  <main>
+    <section class="section">
+      <div class="contact">
+        <form class="contact-card contact-form" action="https://formsubmit.co/pepearenasvenegas@gmail.com" method="POST">
+          <img class="contact-art" src="../assets/img/deco/espeto.webp" alt="" aria-hidden="true">
+          <h2 class="block-title">Write to us</h2>
+          <p>Tell us what you need and we’ll reply to the email you leave us.</p>
+
+          <!-- FormSubmit settings -->
+          <input type="hidden" name="_subject" value="[YaloséGames] Nuevo mensaje desde yalosegames.github.io (EN)">
+          <input type="hidden" name="Origen" value="Web de YaloséGames (inglés) · yalosegames.github.io/en">
+          <input type="hidden" name="_next" value="https://yalosegames.github.io/en/gracias.html">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="field-row">
+            <label class="field">
+              <span>Name</span>
+              <input type="text" name="nombre" required maxlength="80" autocomplete="name">
+            </label>
+            <label class="field">
+              <span>Email</span>
+              <input type="email" name="email" required maxlength="120" autocomplete="email" pattern="[^@\s]+@[^@\s]+\.[A-Za-z]{2,}" title="Enter a valid email, e.g. name@domain.com" aria-describedby="email-help">
+              <small class="field-help" id="email-help">For example: name@domain.com</small>
+            </label>
+          </div>
+          <label class="field">
+            <span>Reason</span>
+            <select name="motivo" required>
+              <option value="" disabled selected>Choose one…</option>
+              <option>Press</option>
+              <option>Festival or event</option>
+              <option>I want to playtest the game</option>
+              <option>Collaboration</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Message</span>
+            <textarea name="mensaje" rows="6" required maxlength="3000"></textarea>
+          </label>
+          <p class="form-note">We’ll only use your details to reply to you.</p>
+          <button type="submit" class="btn btn-sea">Send message</button>
+        </form>
+
+        <div class="contact-side">
+          <div class="contact-card contact-press">
+            <h2 class="block-title">Press kit</h2>
+            <p>Logo, key art, screenshots and the Tourist Trap alpha gameplay are on the game page.</p>
+            <div class="contact-links">
+              <a class="btn btn-line" href="tourist-trap.html">Go to Tourist Trap</a>
+            </div>
+            <div class="contact-stars" aria-hidden="true">
+              <img src="../assets/img/deco/estrella.webp" alt=""><img src="../assets/img/deco/estrella.webp" alt=""><img src="../assets/img/deco/estrella.webp" alt="">
+            </div>
+          </div>
+          <div class="contact-card">
+            <h2 class="block-title">Also on</h2>
+            <div class="contact-links">
+              <a class="btn btn-line" href="https://github.com/YaloseGames" target="_blank" rel="noopener">GitHub · YaloseGames</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="tiles-band" aria-hidden="true"></div>
+  <footer class="footer">
+    <span>© 2026 YaloséGames · Málaga</span>
+    <nav class="foot-nav">
+      <a href="tourist-trap.html">Tourist Trap</a>
+      <a href="quienes-somos.html">About us</a>
+      <a href="contacto.html">Contact</a>
+    </nav>
+    <span class="wip">Site under construction</span>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -21,3 +21,4 @@ exclude:
   - DISEÑO.md
   - BLOG.md
   - versionar.py
+  - traducir.py

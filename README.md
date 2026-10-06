@@ -6,4 +6,4 @@ El blog (`/blog/`, oculto por ahora) lo construye GitHub Pages con Jekyll: cómo
 
 Para verla en local: `python -m http.server` y abre `http://localhost:8000`.
 
-Si cambias `style.css`, ejecuta `python versionar.py` antes de subir (evita que el navegador use un CSS viejo).
+Si cambias una página, ejecuta `python traducir.py` (regenera la versión inglesa en `en/` y versiona el CSS). Si solo cambias `style.css`, basta con `python versionar.py`.

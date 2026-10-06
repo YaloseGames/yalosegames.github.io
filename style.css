@@ -479,3 +479,22 @@ body, .hero, .hero-sky, .awning, .feature, .feature-body, .menu, .team li, .foot
   .post-body { font-size: 17px; }
   .post-nav { justify-content: center; }
 }
+
+
+/* =====================================================================
+   Botón de idioma (ES ⇄ EN): las páginas en inglés viven en en/ (traducir.py)
+   ===================================================================== */
+.lang-switch {
+  flex-shrink: 0;
+  font-family: 'Lilita One', sans-serif; font-size: 16px; letter-spacing: 0.06em; text-decoration: none;
+  color: var(--choco); background: var(--cream);
+  border: 3px solid var(--choco); padding: 4px 10px;
+  box-shadow: 3px 3px 0 var(--peach);
+  transform: rotate(-3deg);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.6s ease, color 0.6s ease;
+}
+.lang-switch:hover, .lang-switch:focus-visible { transform: rotate(0deg) translate(-1px, -1px); box-shadow: 4px 4px 0 var(--peach); }
+@media (max-width: 800px) {
+  .lang-switch { margin-left: auto; font-size: 14px; padding: 3px 8px; }
+  .lang-switch + .nav-sky { margin-left: 0; }
+}

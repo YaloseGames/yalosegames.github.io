@@ -120,6 +120,7 @@ Si hace falta otra fuente, que sea de Google Fonts con licencia OFL, y hay que a
 | Botón principal | `.btn.btn-sea` | Fondo mar y texto crema. En noche, el texto pasa a `#121a33` |
 | Botón secundario | `.btn.btn-line` | Fondo crema y texto chocolate |
 | Enlace activo del menú | `.nav a.is-active` + `aria-current="page"` | Subrayado chocolate de 3px |
+| Botón de idioma | `.lang-switch` | Pegatina crema «EN» / «ES» junto al sol. La pone `traducir.py` |
 | Botón «Contacto» del menú | `.nav-cta` | Botón mar con sombra 4px; cuando está activo pasa a melocotón |
 | Tarjeta de portada | `.teaser` + `.teaser-tt` / `-team` / `-contact` | Cielo / melocotón / espuma. Dibujo del juego asomando abajo a la derecha |
 | Tarjeta de contenido | `.contact-card` | Espuma, sombra melocotón. Variante `.contact-press` en cielo |
@@ -163,6 +164,7 @@ No metas iconos genéricos, emojis ni ilustraciones que no sean del juego.
 
 ## 9. Reglas técnicas
 
+- **Inglés:** las páginas en español son el original y `en/` se **genera** con `python traducir.py`. Si cambias un texto en español, añade su traducción en `traducir.py` y vuelve a ejecutarlo. Nunca edites `en/` a mano, porque se sobrescribe. El script avisa si algo queda sin traducir. El blog solo está en español.
 - **Blog con Jekyll:** GitHub Pages construye `_posts/`, `_layouts/` y `blog/index.html`. Las `.html` sin cabecera YAML se copian tal cual. Cómo se escribe un post: en `BLOG.md`. En las plantillas del blog las rutas son absolutas (`/style.css`, `/assets/…`). **No vuelvas a crear `.nojekyll`**, porque apagaría el blog.
 - **Cero JavaScript.** La CSP tiene `script-src 'none'`. El modo noche es un checkbox (`#night`) con el selector `#night:checked ~ .page`. **No uses `:root:has()`**, porque Chrome no repinta los fondos.
 - **CSP** en cada `.html`: solo `self`, Google Fonts y `form-action https://formsubmit.co`.
@@ -183,7 +185,7 @@ No metas iconos genéricos, emojis ni ilustraciones que no sean del juego.
 | Colores por variable | Hex sueltos sin versión noche |
 | Dibujos del juego | Iconos de librería, emojis, stock |
 | Lilita One + Inter | Malacitana, fuentes del juego |
-| Texto en español de España | Textos mezclados ES/EN |
+| Español de España y su copia en `en/` | Textos mezclados ES/EN en una misma página |
 
 ---
 
@@ -191,6 +193,6 @@ No metas iconos genéricos, emojis ni ilustraciones que no sean del juego.
 
 1. Mírala de **día y de noche**.
 2. Mírala en **móvil** (375px) y en monitor ancho.
-3. Ejecuta `python versionar.py` si tocaste el CSS.
+3. Ejecuta `python traducir.py` si tocaste alguna página (ya llama a `versionar.py`). Si solo tocaste el CSS, basta con `python versionar.py`.
 4. Pasa la validación de HTML (sin etiquetas sin cerrar).
 5. Haz commit y luego **Push origin** en GitHub Desktop.
