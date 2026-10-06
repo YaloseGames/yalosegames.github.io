@@ -498,3 +498,10 @@ body, .hero, .hero-sky, .awning, .feature, .feature-body, .menu, .team li, .foot
   .lang-switch { margin-left: auto; font-size: 14px; padding: 3px 8px; }
   .lang-switch + .nav-sky { margin-left: 0; }
 }
+
+
+/* Pizarra del chiringuito (Tourist Trap, tras la carta): la imagen ya trae su marco de madera */
+.chalkboard { margin: 70px auto 0; max-width: 760px; text-align: center; }
+.chalkboard img { width: 100%; height: auto; transform: rotate(1.5deg); filter: drop-shadow(8px 8px 0 var(--peach)); }
+.chalkboard figcaption { margin-top: 18px; font-family: 'Lilita One', sans-serif; font-size: clamp(16px, 1.4vw, 20px); color: var(--brown); }
+#night:checked ~ .page .chalkboard img { filter: drop-shadow(8px 8px 0 var(--peach)) brightness(0.85); }
