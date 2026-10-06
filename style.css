@@ -526,26 +526,6 @@ body, .hero, .hero-sky, .awning, .feature, .feature-body, .menu, .team li, .foot
 /* =====================================================================
    Props de Dani y Ernesto (assets/img/deco/props/)
    ===================================================================== */
-/* Portada: una playa antes del pie */
-.beach { position: relative; margin-top: 40px; height: 270px; display: flex; align-items: flex-end; justify-content: space-between; gap: 1vw; padding: 0 clamp(16px, 4vw, 64px) 26px; overflow: hidden; }
-.beach::before { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 74px; background: var(--peach); border-top: 3px solid var(--choco); transition: background-color 0.6s ease, border-color 0.6s ease; }
-.beach img { position: relative; z-index: 1; height: auto; flex-shrink: 1; min-width: 0; }
-.b-palm1 { width: 190px; margin-bottom: -6px; }
-.b-palm2 { width: 150px; margin-bottom: -6px; transform: scaleX(-1); }
-.b-tumbona { width: 170px; }
-.b-sombrilla { width: 190px; }
-.b-barca { width: 200px; }
-.b-nevera { width: 150px; }
-.b-concha1 { width: 46px; transform: rotate(-12deg); }
-.b-concha2 { width: 34px; transform: rotate(10deg); }
-.b-caracola { width: 54px; }
-@media (max-width: 800px) {
-  .beach { height: 190px; padding-bottom: 20px; }
-  .beach::before { height: 56px; }
-  .b-tumbona, .b-nevera, .b-concha2 { display: none; }
-  .b-palm1 { width: 120px; } .b-palm2 { width: 96px; } .b-sombrilla { width: 120px; } .b-barca { width: 130px; }
-}
-
 /* Tourist Trap: guirnalda de bombillas sobre la carta */
 .string-lights { position: absolute; top: -6px; left: 24px; right: 260px; height: 74px; background: url('assets/img/deco/props/guirnalda-bombillas.webp') 0 0 / auto 100% repeat-x; pointer-events: none; }
 .menu-title { margin-top: 40px; }
@@ -555,14 +535,12 @@ body, .hero, .hero-sky, .awning, .feature, .feature-body, .menu, .team li, .foot
 /* Tourist Trap: Poseidón, cliente del chiringuito, junto a la historia */
 .story-poseidon { float: right; width: clamp(110px, 12vw, 170px); height: auto; margin: 0 0 8px 18px; transform: rotate(3deg); filter: drop-shadow(5px 5px 0 rgba(62, 19, 15, 0.15)); }
 
-/* Quiénes somos: la barra y los banderines del Guirilencia */
+/* Quiénes somos: la barra */
 .bar-props { display: flex; align-items: flex-end; gap: 14px; margin-top: 22px !important; }
 .bar-props img { height: 96px; width: auto; }
 .bar-props img:nth-child(2) { height: 116px; transform: rotate(-4deg); }
 .bar-props img:nth-child(4) { height: 70px; }
-.team-garland { height: 110px; margin: -6px 0 -18px; background: url('assets/img/deco/props/guirnalda-guirilencia.webp') 0 0 / auto 100% repeat-x; position: relative; z-index: 1; pointer-events: none; }
-@media (max-width: 800px) { .team-garland { height: 76px; } .bar-props img { height: 70px; } .bar-props img:nth-child(2) { height: 84px; } .bar-props img:nth-child(4) { height: 52px; } }
-
+@media (max-width: 800px) { 
 /* Contacto: pecera en «También en» */
 .contact-also { min-height: 190px; }
 .contact-also .also-fishbowl { top: auto; bottom: 14px; right: 16px; width: 120px; transform: rotate(4deg); opacity: 1; }

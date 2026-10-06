@@ -146,14 +146,13 @@ Todo sale de los assets del juego (`assets/img/deco/`): sol, luna, nubes, estrel
 
 | Dónde | Props |
 |---|---|
-| Portada | `.beach`: playa con palmeras, tumbona, sombrilla de rayas, barca de espetos, nevera «FRIO FRIO» y conchas |
 | Tourist Trap | Guirnalda de bombillas sobre la carta; Poseidón junto a la historia; gramófono junto a la pizarra; altavoz sobre el vídeo |
-| Quiénes somos | Servilletero «CHIRINGELIOS», cerveza, copa y cubata; banderines del Guirilencia F.C. sobre el equipo |
+| Quiénes somos | Servilletero «CHIRINGELIOS», cerveza, copa y cubata |
 | Contacto | Radio en «Kit de prensa»; pecera en «También en» |
 | Gracias | Trofeo de oro |
 | Blog | Tele en la cabecera y guirnalda de banderines |
 
-Hay más en la carpeta, sin usar todavía: trofeos de bronce y plata, banderines sueltos, lámpara roja, caracolas, palmera baja.
+Probados y descartados por recargar demasiado: la playa de props en la portada y la guirnalda del Guirilencia sobre el equipo. Hay más en la carpeta, sin usar todavía: trofeos de bronce y plata, banderines sueltos, lámpara roja, caracolas, palmera baja.
 
 - **Toldo** (`.awning`): rayas melocotón y crema de 64px, con el borde festoneado hecho con `radial-gradient`.
 - **Azulejo** (`.tiles-band`): franja de 56px con borde chocolate arriba y abajo. Va antes y después del contenido.
