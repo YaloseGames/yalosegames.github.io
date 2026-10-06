@@ -77,7 +77,7 @@ POR_PAGINA = {
         ('<!-- La pizarra del chiringuito (portada del GDD) -->', '<!-- The beach bar chalkboard (GDD cover) -->'),
         ('alt="Pizarra «Cómo pedir un cafelito»: un pez profesor con un puntero explica los cafés de Málaga, del solo a la nube"',
          'alt="Chalkboard “Cómo pedir un cafelito” (how to order a coffee): a fish teacher with a pointer explains the coffees of Málaga, from solo to nube"'),
-        ('La pizarra del chiringuito: así se pide el café en Málaga', 'The beach bar chalkboard: how to order coffee in Málaga'),
+        ('Cómo pedir un cafelito en nuestro Chiringuito', 'How to order a cafelito at our beach bar'),
         ('>Capturas<', '>Screenshots<'),
         ('alt="La playa desde arriba"', 'alt="The beach from above"'),
         ('alt="El chiringuito"', 'alt="The beach bar"'),
