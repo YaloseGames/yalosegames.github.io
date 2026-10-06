@@ -501,7 +501,18 @@ body, .hero, .hero-sky, .awning, .feature, .feature-body, .menu, .team li, .foot
 
 
 /* Pizarra del chiringuito (Tourist Trap, tras la carta): la imagen ya trae su marco de madera */
-.chalkboard { margin: 70px auto 0; max-width: 760px; text-align: center; }
+.chalkboard { position: relative; margin: 70px auto 0; max-width: 760px; text-align: center; }
 .chalkboard img { width: 100%; height: auto; transform: rotate(1.5deg); filter: drop-shadow(8px 8px 0 var(--peach)); }
 .chalkboard figcaption { margin-top: 18px; font-family: 'Lilita One', sans-serif; font-size: clamp(16px, 1.4vw, 20px); color: var(--brown); }
 #night:checked ~ .page .chalkboard img { filter: drop-shadow(8px 8px 0 var(--peach)) brightness(0.85); }
+
+/* Dibujos de la lámina de props (radio, gramófono, altavoz) */
+.chalkboard .chalk-gramophone { position: absolute; filter: drop-shadow(6px 6px 0 rgba(62, 19, 15, 0.18)); left: -255px; bottom: 24px; width: 210px; transform: rotate(-4deg); pointer-events: none; }
+.video-deco { position: relative; }
+.video-speaker { position: absolute; right: 28px; bottom: calc(100% - 16px); width: clamp(100px, 9vw, 140px); transform: rotate(4deg); z-index: 2; pointer-events: none; }
+.contact-press .press-radio { top: auto; bottom: 16px; right: 12px; width: 150px; transform: rotate(6deg); opacity: 1; }
+@media (max-width: 1240px) { .chalkboard .chalk-gramophone { display: none; } }
+@media (max-width: 800px) {
+  .video-speaker { right: 10px; width: 76px; }
+  .contact-press .press-radio { width: 110px; }
+}
