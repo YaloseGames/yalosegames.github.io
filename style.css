@@ -318,7 +318,7 @@ body, .hero, .hero-sky, .awning, .feature, .feature-body, .menu, .team li, .foot
 .teaser-team { background: var(--peach); }
 .teaser-contact { background: var(--foam); }
 .teaser-logo { width: min(300px, 70%); height: auto; }
-.teaser-art { position: absolute; right: -16px; bottom: -18px; width: 42%; height: auto; opacity: 0.95; transform: rotate(-6deg); }
+.teaser-art { position: absolute; right: -16px; bottom: -18px; width: clamp(110px, 42%, 230px); height: auto; opacity: 0.95; transform: rotate(-6deg); }
 .teaser h2, .teaser p { padding-right: 30%; }
 .teaser-tt p { padding-right: 0; }
 
@@ -515,4 +515,9 @@ body, .hero, .hero-sky, .awning, .feature, .feature-body, .menu, .team li, .foot
 @media (max-width: 800px) {
   .video-speaker { right: 10px; width: 76px; }
   .contact-press .press-radio { width: 110px; }
+}
+
+/* Móvil: el dibujo de las tarjetas de portada no pisa el texto */
+@media (max-width: 800px) {
+  .teaser-team h2, .teaser-team p, .teaser-contact h2, .teaser-contact p { padding-right: 40%; }
 }
