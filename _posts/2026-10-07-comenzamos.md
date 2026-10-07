@@ -6,6 +6,7 @@ autor: Rogelio Chiringelio
 resumen: "Abrimos el blog con dos estrenos: nuestra tarjeta de visita y el elevator pitch de Tourist Trap en vídeo."
 portada: /assets/blog/blog-0/portada.jpg
 etiquetas: [Estudio, Tourist Trap, Elevator pitch]
+traduccion: /en/blog/comenzamos/
 ---
 
 ¡Hola! Somos **YaloséGames**, un estudio indie de Málaga, y este es el primer post de nuestro blog. Aquí iremos contando cómo avanza **Tourist Trap**, ¡nuestro primer juego!
@@ -42,7 +43,7 @@ En el vídeo contamos lo esencial del juego:
 - **El humor:** Con inspiración de Francisco Ibáñez y de su obra Mortadelo y Filemón, con eventos caóticos como incendios o tsunamis en mitad del servicio.
 - **El plan:** Queremos lanzarlo en Steam en mayo de 2028, y estamos buscando financiación para terminarlo, ampliar el equipo y llevarlo a más plataformas.
 
-> Spoiler: recuerda que el gameplay es una build MUY temprana del juego, ¡estamos en desarrollo!
+> Importante: recuerda que el gameplay es de una build MUY temprana del juego, ¡todavía estamos en desarrollo!
 
 ---
 

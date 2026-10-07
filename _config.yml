@@ -11,6 +11,12 @@ timezone: Europe/Madrid
 blog_publico: true
 
 permalink: /blog/:title/
+
+# Blog en inglés: cada post va en _en_posts/ (nombre sin fecha; la fecha va en la cabecera)
+collections:
+  en_posts:
+    output: true
+    permalink: /en/blog/:title/
 markdown: kramdown
 kramdown:
   input: GFM

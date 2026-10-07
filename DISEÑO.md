@@ -178,7 +178,7 @@ No metas iconos genéricos, emojis ni ilustraciones que no sean del juego.
 
 ## 9. Reglas técnicas
 
-- **Inglés:** las páginas en español son el original y `en/` se **genera** con `python traducir.py`. Si cambias un texto en español, añade su traducción en `traducir.py` y vuelve a ejecutarlo. Nunca edites `en/` a mano, porque se sobrescribe. El script avisa si algo queda sin traducir. El blog solo está en español.
+- **Inglés:** las páginas en español son el original y `en/` se **genera** con `python traducir.py`. Si cambias un texto en español, añade su traducción en `traducir.py` y vuelve a ejecutarlo. Nunca edites `en/` a mano, porque se sobrescribe. El script avisa si algo queda sin traducir. El blog es bilingüe: los posts en inglés van en `_en_posts/` y su lista en `en/blog/index.html`, que **no** genera `traducir.py` (es una plantilla de Jekyll y se edita a mano). Las plantillas `_layouts/` ponen menú y pie en inglés cuando la página lleva `lang: en`.
 - **Blog con Jekyll:** GitHub Pages construye `_posts/`, `_layouts/` y `blog/index.html`. Las `.html` sin cabecera YAML se copian tal cual. Cómo se escribe un post: en `BLOG.md`. En las plantillas del blog las rutas son absolutas (`/style.css`, `/assets/…`). **No vuelvas a crear `.nojekyll`**, porque apagaría el blog.
 - **Cero JavaScript.** La CSP tiene `script-src 'none'`. El modo noche es un checkbox (`#night`) con el selector `#night:checked ~ .page`. **No uses `:root:has()`**, porque Chrome no repinta los fondos.
 - **CSP** en cada `.html`: solo `self`, Google Fonts y `form-action https://formsubmit.co`.

@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
+{% if page.lang == 'en' %}{% assign en = true %}{% assign pre = '/en' %}{% assign alt = page.traduccion | default: '/blog/' %}{% assign desc = 'Tourist Trap development diary, by YaloséGames.' %}{% else %}{% assign en = false %}{% assign pre = '' %}{% assign alt = page.traduccion | default: '/en/blog/' %}{% assign desc = 'Diario de desarrollo de Tourist Trap, de YaloséGames.' %}{% endif %}<!DOCTYPE html>
+<html lang="{% if en %}en{% else %}es{% endif %}">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; object-src 'none'; base-uri 'self'; form-action https://formsubmit.co">
@@ -7,33 +7,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#8ad6e3">
 <title>{% if page.numero != nil %}Blog #{{ page.numero }}: {{ page.title }}{% else %}{{ page.title }}{% endif %} — YaloséGames</title>
-<meta name="description" content="{{ page.resumen | default: 'Diario de desarrollo de Tourist Trap, de YaloséGames.' | escape }}">
+<meta name="description" content="{{ page.resumen | default: desc | escape }}">
 {% unless site.blog_publico %}<meta name="robots" content="noindex">{% endunless %}
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta property="og:type" content="{% if page.numero != nil %}article{% else %}website{% endif %}">
+{% if en %}<meta property="og:locale" content="en_GB">
+{% endif %}<meta property="og:type" content="{% if page.numero != nil %}article{% else %}website{% endif %}">
 <meta property="og:title" content="{{ page.title | escape }} — YaloséGames">
-<meta property="og:description" content="{{ page.resumen | default: 'Diario de desarrollo de Tourist Trap, de YaloséGames.' | escape }}">
+<meta property="og:description" content="{{ page.resumen | default: desc | escape }}">
 <meta property="og:image" content="{{ site.url }}{{ page.portada | default: '/assets/img/keyart.jpg' }}">
+<link rel="alternate" hreflang="{% if en %}es{% else %}en{% endif %}" href="{{ site.url }}{{ alt }}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/style.css?v=55e57770">
 </head>
 <body class="p-blog">
 
 <!-- Día / noche sin JavaScript: el sol / la luna (label) marca este checkbox y la paleta cambia en .page -->
-<input type="checkbox" id="night" class="night-toggle" aria-label="Modo noche">
+<!-- Blog bilingüe: las páginas con «lang: en» (posts de _en_posts/ y en/blog/) salen con menú y pie en inglés -->
+<input type="checkbox" id="night" class="night-toggle" aria-label="{% if en %}Night mode{% else %}Modo noche{% endif %}">
 <div class="page">
 
   <header class="topbar">
-    <a class="brand" href="/index.html"><img src="/assets/img/deco/logo-yalose.webp" alt=""><span>YaloséGames</span></a>
-    <nav class="nav" aria-label="Principal">
-      <a href="/index.html">Inicio</a>
-      <a href="/tourist-trap.html">Tourist Trap</a>
-      <a href="/quienes-somos.html">Quiénes somos</a>
-      {% if site.blog_publico %}<a href="/blog/" class="is-active" aria-current="page">Blog</a>{% endif %}
-      <a href="/contacto.html" class="nav-cta">Contacto</a>
+    <a class="brand" href="{{ pre }}/index.html"><img src="/assets/img/deco/logo-yalose.webp" alt=""><span>YaloséGames</span></a>
+    <nav class="nav" aria-label="{% if en %}Main{% else %}Principal{% endif %}">
+      <a href="{{ pre }}/index.html">{% if en %}Home{% else %}Inicio{% endif %}</a>
+      <a href="{{ pre }}/tourist-trap.html">Tourist Trap</a>
+      <a href="{{ pre }}/quienes-somos.html">{% if en %}About us{% else %}Quiénes somos{% endif %}</a>
+      {% if site.blog_publico %}<a href="{{ pre }}/blog/" class="is-active" aria-current="page">Blog</a>{% endif %}
+      <a href="{{ pre }}/contacto.html" class="nav-cta">{% if en %}Contact{% else %}Contacto{% endif %}</a>
     </nav>
-    <label for="night" class="nav-sky" title="¿Día o noche?">
+    {% if en %}<a class="lang-switch" href="{{ alt }}" hreflang="es" lang="es" aria-label="Leer esta página en español">ES</a>{% else %}<a class="lang-switch" href="{{ alt }}" hreflang="en" lang="en" aria-label="Read this page in English">EN</a>{% endif %}
+    <label for="night" class="nav-sky" title="{% if en %}Day or night?{% else %}¿Día o noche?{% endif %}">
       <img class="sun" src="/assets/img/deco/sol.webp" alt="">
       <img class="moon" src="/assets/img/deco/luna.webp" alt="">
     </label>
@@ -45,11 +49,11 @@
   <footer class="footer">
     <span>© 2026 YaloséGames · Málaga</span>
     <nav class="foot-nav">
-      <a href="/tourist-trap.html">Tourist Trap</a>
-      <a href="/quienes-somos.html">Quiénes somos</a>
-      <a href="/contacto.html">Contacto</a>
+      <a href="{{ pre }}/tourist-trap.html">Tourist Trap</a>
+      <a href="{{ pre }}/quienes-somos.html">{% if en %}About us{% else %}Quiénes somos{% endif %}</a>
+      <a href="{{ pre }}/contacto.html">{% if en %}Contact{% else %}Contacto{% endif %}</a>
     </nav>
-    <span class="wip">Web en construcción</span>
+    <span class="wip">{% if en %}Site under construction{% else %}Web en construcción{% endif %}</span>
   </footer>
 
 </div>

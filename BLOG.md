@@ -28,6 +28,22 @@ Haz lo mismo en la carpeta `_posts/` y luego commit y **Push origin** en GitHub 
 
 ---
 
+## La versión en inglés
+
+Cada post puede tener su traducción en `_en_posts/`, con el **mismo nombre pero sin la fecha**: por ejemplo, `_en_posts/la-sarten.md` para `_posts/2026-10-20-la-sarten.md`. Sale en `/en/blog/la-sarten/` y en la lista de `/en/blog/`.
+
+En su cabecera, además de lo de siempre, van estas tres líneas:
+
+```yaml
+lang: en                          # menú, pie y botones en inglés
+date: 2026-10-20                  # aquí la fecha va en la cabecera
+traduccion: /blog/la-sarten/      # el botón «ES» lleva al post en español
+```
+
+En el post en español, añade `traduccion: /en/blog/la-sarten/` para que su botón «EN» lleve a la traducción. Si no lo pones, el botón lleva a la lista del otro idioma.
+
+---
+
 ## La cabecera de cada post
 
 ```yaml
