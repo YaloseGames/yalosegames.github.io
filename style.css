@@ -120,6 +120,9 @@ main { max-width: 1400px; margin: 0 auto; }
 .gallery a { display: block; aspect-ratio: 16 / 10; overflow: hidden; border: 3px solid var(--choco); box-shadow: 5px 5px 0 var(--peach); }
 .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
 .gallery a:hover img { transform: scale(1.05); }
+.gallery-vid { overflow: hidden; border: 3px solid var(--choco); box-shadow: 5px 5px 0 var(--peach); background: var(--choco); aspect-ratio: 16 / 10; }
+.gallery-vid video { display: block; width: 100%; height: 100%; object-fit: contain; }
+.gallery-vid--tall { grid-row: span 2; aspect-ratio: auto; }
 
 /* ---------- Equipo ---------- */
 .team { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; }
