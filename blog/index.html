@@ -1,6 +1,6 @@
 ---
 layout: base
-title: Devlog
+title: Blog
 resumen: Diario de desarrollo de Tourist Trap, de YaloséGames.
 ---
   <section class="page-hero">
@@ -10,7 +10,7 @@ resumen: Diario de desarrollo de Tourist Trap, de YaloséGames.
     <span class="night-stars" aria-hidden="true"></span>
     <img class="blog-tv" src="/assets/img/deco/props/tele.webp" alt="" aria-hidden="true">
     <div class="page-hero-copy">
-      <h1 class="page-title">Devlog</h1>
+      <h1 class="page-title">Blog</h1>
       <p class="page-sub">Así va Tourist Trap, paso a paso</p>
     </div>
   </section>
@@ -28,7 +28,7 @@ resumen: Diario de desarrollo de Tourist Trap, de YaloséGames.
           {% if post.portada %}<img class="post-card-img" src="{{ post.portada }}" alt="" loading="lazy">{% endif %}
           <div class="post-card-body">
             <p class="post-stickers">
-              <span class="post-num">Devlog #{{ post.numero }}</span>
+              <span class="post-num">Blog #{{ post.numero }}</span>
               <time class="post-date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%d/%m/%Y' }}</time>
             </p>
             <h2>{{ post.title }}</h2>

@@ -122,7 +122,6 @@ main { max-width: 1400px; margin: 0 auto; }
 .gallery a:hover img { transform: scale(1.05); }
 .gallery-vid { overflow: hidden; border: 3px solid var(--choco); box-shadow: 5px 5px 0 var(--peach); background: var(--choco); aspect-ratio: 16 / 10; }
 .gallery-vid video { display: block; width: 100%; height: 100%; object-fit: contain; }
-.gallery-vid--tall { grid-row: span 2; aspect-ratio: auto; }
 
 /* ---------- Equipo ---------- */
 .team { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; }
@@ -473,6 +472,13 @@ body, .hero, .hero-sky, .awning, .feature, .feature-body, .menu, .team li, .foot
 .post-tags span:not(:last-child)::after { content: '/'; margin-left: 8px; opacity: 0.45; }
 .post-nav { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 40px; padding-top: 28px; border-top: 3px solid var(--choco); }
 
+/* Vídeo vertical (9:16): <video class="video-vertical" …> */
+.post-body video.video-vertical { width: min(100%, 400px); margin: 36px auto 14px; }
+/* Dos imágenes lado a lado, un poco giradas: <div class="post-pair"><img …><img …></div> */
+.post-body .post-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin: 36px 0 14px; }
+.post-body .post-pair img:first-child { transform: rotate(-2deg); }
+.post-body .post-pair img:last-child { transform: rotate(2deg); }
+
 #night:checked ~ .page .post-body img, #night:checked ~ .page .post-cover, #night:checked ~ .page .post-card-img { filter: brightness(0.85); }
 
 @media (max-width: 800px) {
@@ -480,6 +486,7 @@ body, .hero, .hero-sky, .awning, .feature, .feature-body, .menu, .team li, .foot
   .post-card:first-child { flex-direction: column; }
   .post-card:first-child .post-card-img { width: 100%; min-height: 0; aspect-ratio: 16 / 9; border-right: none; border-bottom: 3px solid var(--choco); }
   .post-body { font-size: 17px; }
+  .post-body .post-pair { grid-template-columns: 1fr; }
   .post-nav { justify-content: center; }
 }
 
@@ -543,7 +550,8 @@ body, .hero, .hero-sky, .awning, .feature, .feature-body, .menu, .team li, .foot
 .bar-props img { height: 96px; width: auto; }
 .bar-props img:nth-child(2) { height: 116px; transform: rotate(-4deg); }
 .bar-props img:nth-child(4) { height: 70px; }
-@media (max-width: 800px) { 
+@media (max-width: 800px) { .bar-props img { height: 70px; } .bar-props img:nth-child(2) { height: 84px; } .bar-props img:nth-child(4) { height: 52px; } }
+
 /* Contacto: pecera en «También en» */
 .contact-also { min-height: 190px; }
 .contact-also .also-fishbowl { top: auto; bottom: 14px; right: 16px; width: 120px; transform: rotate(4deg); opacity: 1; }

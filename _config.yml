@@ -6,9 +6,9 @@ lang: es
 url: https://yalosegames.github.io
 timezone: Europe/Madrid
 
-# Blog oculto: sin enlace en el menú y con «noindex» para que Google no lo muestre.
-# Para abrirlo al público: pon true y añade «Blog» al menú de las páginas (ver BLOG.md).
-blog_publico: false
+# Blog público: sale «Blog» en el menú y Google puede indexarlo.
+# Para ocultarlo otra vez: pon false y quita «Blog» del menú de las páginas (ver BLOG.md).
+blog_publico: true
 
 permalink: /blog/:title/
 markdown: kramdown

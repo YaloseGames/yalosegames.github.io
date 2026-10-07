@@ -5,7 +5,7 @@ El blog lo construye **GitHub Pages con Jekyll** cada vez que haces push. No tie
 - Lista de entradas: `https://yalosegames.github.io/blog/`
 - Cada entrada: `https://yalosegames.github.io/blog/<nombre-del-archivo-sin-fecha>/`
 
-Ahora mismo está **oculto**: no sale en el menú y lleva `noindex`, así que Google no lo muestra. Solo entra quien tenga el enlace.
+Es **público**: sale «Blog» en el menú de todas las páginas y Google puede indexarlo.
 
 ---
 
@@ -15,7 +15,7 @@ Ahora mismo está **oculto**: no sale en el menú y lleva `noindex`, así que Go
 
 1. Entra en el repo en github.com y abre la carpeta `_posts`.
 2. Pulsa **Add file → Create new file**.
-3. Nómbralo `AAAA-MM-DD-titulo-corto.md`, por ejemplo `2026-10-20-devlog-1-la-sarten.md`.
+3. Nómbralo `AAAA-MM-DD-titulo-corto.md`, por ejemplo `2026-10-20-la-sarten.md` (quedará en `/blog/la-sarten/`).
    - La fecha manda en el orden de la lista.
    - El resto del nombre será la dirección.
    - Todo en minúsculas, sin tildes ni espacios.
@@ -34,10 +34,10 @@ Haz lo mismo en la carpeta `_posts/` y luego commit y **Push origin** en GitHub 
 ---
 layout: post                 # no lo cambies
 title: La sartén             # título grande
-numero: 1                    # sale como «DEVLOG #1»
+numero: 1                    # sale como «BLOG #1»
 autor: Pepe                  # opcional
 resumen: Una o dos frases.   # sale en la lista y al compartir el enlace
-portada: /assets/blog/devlog-1/portada.jpg   # opcional, imagen 16:9
+portada: /assets/blog/blog-1/portada.jpg     # opcional, imagen 16:9 (es la miniatura de la lista)
 etiquetas: [Diseño, Minijuegos]              # opcional
 ---
 ```
@@ -49,15 +49,17 @@ etiquetas: [Diseño, Minijuegos]              # opcional
 | Subtítulo | `## Subtítulo` |
 | Negrita / cursiva | `**negrita**` / `*cursiva*` |
 | Enlace | `[texto](https://…)` |
-| Imagen | `![descripción](/assets/blog/devlog-1/foto.jpg)` |
+| Imagen | `![descripción](/assets/blog/blog-1/foto.jpg)` |
+| Dos imágenes lado a lado | `<div class="post-pair"><img src="…" alt="…"><img src="…" alt="…"></div>` |
 | Pie de foto | Una línea entera en cursiva justo debajo: `*El pie de foto.*` |
 | Lista | `- cosa` (cuadraditos) o `1. paso` (números) |
 | Nota destacada | `> texto` (sale como tarjeta) |
 | Separador | `---` (línea de puntos) |
-| Vídeo | `<video controls playsinline preload="none" src="/assets/blog/devlog-1/clip.mp4"></video>` |
+| Vídeo | `<video controls playsinline preload="none" src="/assets/blog/blog-1/clip.mp4"></video>` |
+| Vídeo vertical (9:16) | Igual, con `class="video-vertical"` en el `<video>` (sale centrado, a 400px como máximo) |
 
 **Imágenes y vídeos:**
-- Van en `assets/blog/devlog-N/`, una carpeta por post.
+- Van en `assets/blog/blog-N/`, una carpeta por post.
 - Usa `.jpg` o `.webp` de menos de ~500 KB, y vídeos `.mp4` cortos.
 - **YouTube no funciona:** la seguridad de la web (CSP) bloquea vídeos externos. Usa `.mp4` o un GIF.
 
@@ -68,11 +70,10 @@ etiquetas: [Diseño, Minijuegos]              # opcional
 
 ---
 
-## Abrir el blog al público
+## Ocultar el blog otra vez
 
-1. En `_config.yml`, cambia `blog_publico: false` por `true`. Así se quita el `noindex` y sale «Blog» en el menú de las páginas del blog.
-2. Añade `<a href="blog/">Blog</a>` al menú (`.nav`) de `index.html`, `tourist-trap.html`, `quienes-somos.html`, `contacto.html` y `gracias.html`, justo antes de Contacto.
-3. Si quieres, añade también una tarjeta en la portada.
+1. En `_config.yml`, cambia `blog_publico: true` por `false`. Así vuelve el `noindex` y desaparece «Blog» del menú de las páginas del blog.
+2. Quita `<a href="blog/">Blog</a>` del menú (`.nav`) de `index.html`, `tourist-trap.html`, `quienes-somos.html`, `contacto.html` y `gracias.html`, y ejecuta `python traducir.py`.
 
 ## Si cambias el diseño
 

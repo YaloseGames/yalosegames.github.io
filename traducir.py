@@ -190,7 +190,7 @@ for page in PAGES:
             print(f'⚠️  {page}: ya no encuentro «{a[:70]}»'); avisos += 1
         en = en.replace(a, b)
     # Rutas: en/ está una carpeta más abajo
-    en = re.sub(r'(src|href)="(assets/|style\.css|favicon\.png|apple-touch-icon\.png)', r'\1="../\2', en)
+    en = re.sub(r'(src|href)="(assets/|style\.css|favicon\.png|apple-touch-icon\.png|blog/)', r'\1="../\2', en)
     en = en.replace('<meta property="og:type"', '<meta property="og:locale" content="en_GB">\n<meta property="og:type"', 1)
 
     for linea in en.splitlines():

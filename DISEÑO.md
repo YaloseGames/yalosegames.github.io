@@ -129,8 +129,10 @@ Si hace falta otra fuente, que sea de Google Fonts con licencia OFL, y hay que a
 | Campo | `label.field` > `span` + `input` | Etiqueta en Lilita, campo crema con sombra melocotón |
 | Pista de campo | `small.field-help` | Se pone roja si el campo es inválido |
 | Tarjeta de post | `.post-card.post-card-c0/c1/c2` | Cielo / melocotón / espuma. La más reciente ocupa todo el ancho |
-| Pegatinas de post | `.post-num` + `.post-date` | «DEVLOG #N» en chocolate y fecha en crema, giradas |
+| Pegatinas de post | `.post-num` + `.post-date` | «BLOG #N» en chocolate y fecha en crema, giradas |
 | Cuerpo de post | `.post-body` | Ancho de 860px e Inter de 18px. Imágenes con sombra melocotón, `>` como tarjeta y `---` como línea de puntos |
+| Pareja de imágenes | `.post-pair` | Dos imágenes lado a lado, giradas −2° y 2°; en móvil, una debajo de otra |
+| Vídeo vertical | `video.video-vertical` | Centrado y a 400px como máximo de ancho |
 
 **Formularios:** van a FormSubmit. Llevan los campos ocultos `_subject`, `Origen`, `_next` (que apunta a `gracias.html`) y `_template=table`, más el señuelo `_honey`.
 
