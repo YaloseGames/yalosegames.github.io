@@ -377,7 +377,11 @@ body, .hero, .hero-sky, .awning, .feature, .feature-body, .menu, .team li, .foot
 /* =====================================================================
    Formulario de contacto
    ===================================================================== */
-.contact { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: start; }
+.contact { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: stretch; }
+/* El formulario mide lo mismo que la columna derecha: el cuadro del mensaje se estira */
+.contact-form .field-msg { flex: 1; }
+.contact-form .field-msg textarea { flex: 1; }
+.contact-side .contact-also { flex: 1; }
 .contact-side { display: flex; flex-direction: column; gap: 28px; }
 .contact-form { display: flex; flex-direction: column; gap: 16px; }
 .contact-form .contact-art { top: 10px; right: -30px; width: 150px; }
