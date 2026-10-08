@@ -122,6 +122,12 @@ main { max-width: 1400px; margin: 0 auto; }
 .gallery a:hover img { transform: scale(1.05); }
 .gallery-vid { overflow: hidden; border: 3px solid var(--choco); box-shadow: 5px 5px 0 var(--peach); background: var(--choco); aspect-ratio: 16 / 10; }
 .gallery-vid video { display: block; width: 100%; height: 100%; object-fit: contain; }
+/* Minijuegos de cocina: cuatro animaciones con su nombre, mismo marco que la galería */
+.minigames { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.minigames figure { margin: 0; border: 3px solid var(--choco); box-shadow: 5px 5px 0 var(--peach); background: var(--choco); }
+.minigames img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.minigames figcaption { font-family: 'Lilita One', sans-serif; font-size: 16px; text-align: center; color: var(--cream); padding: 6px 4px 8px; }
+@media (max-width: 1000px) { .minigames { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* ---------- Equipo ---------- */
 .team { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; }

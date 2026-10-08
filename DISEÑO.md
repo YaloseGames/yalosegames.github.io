@@ -131,6 +131,7 @@ Si hace falta otra fuente, que sea de Google Fonts con licencia OFL, y hay que a
 | Tarjeta de post | `.post-card.post-card-c0/c1/c2` | Cielo / melocotón / espuma. La más reciente ocupa todo el ancho |
 | Pegatinas de post | `.post-num` + `.post-date` | «BLOG #N» en chocolate y fecha en crema, giradas |
 | Cuerpo de post | `.post-body` | Ancho de 860px e Inter de 18px. Imágenes con sombra melocotón, `>` como tarjeta y `---` como línea de puntos |
+| Minijuegos animados | `.minigames` > `figure` | En tourist-trap.html: rejilla de 4 animaciones WebP (2 en ≤1000px) con su nombre en Lilita. Mismo marco que la galería. Las animaciones van en `assets/img/anim/` a 480 px |
 | Pareja de imágenes | `.post-pair` | Dos imágenes lado a lado, giradas −2° y 2°; en móvil, una debajo de otra |
 | Vídeo vertical | `video.video-vertical` | Centrado y a 400px como máximo de ancho |
 
