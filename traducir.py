@@ -21,6 +21,7 @@ COMUN = [
     ('>Quiénes somos</a>', '>About us</a>'),
     ('>Contacto</a>', '>Contact</a>'),
     ('Web en construcción', 'Site under construction'),
+    ('aria-label="Redes sociales"', 'aria-label="Social media"'),
 ]
 
 POR_PAGINA = {
