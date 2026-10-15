@@ -579,3 +579,19 @@ body, .hero, .hero-sky, .awning, .feature, .feature-body, .menu, .team li, .foot
 .blog-tv { position: absolute; left: 7%; bottom: 26px; width: clamp(90px, 10vw, 150px); transform: rotate(-6deg); z-index: 2; }
 .blog-bunting { height: 80px; margin: -40px 0 24px; background: url('assets/img/deco/props/guirnalda-banderines.webp') 0 0 / auto 100% repeat-x; }
 @media (max-width: 800px) { .blog-tv { display: none; } .blog-bunting { height: 56px; margin-top: -24px; } }
+
+/* Tourist Trap: los personajes (antes de la carta) */
+.cast { margin: 0 0 56px; }
+.cast-grid { list-style: none; margin: 0 auto; max-width: 640px; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 22px; align-items: end; }
+.cast-grid li { display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+.cast-grid img { width: 100%; height: 300px; object-fit: contain; transition: transform 0.25s ease; }
+.cast-grid li:hover img { transform: translateY(-6px) rotate(-3deg); }
+.cast-grid span { font-family: 'Lilita One', sans-serif; font-size: 24px; color: var(--choco); }
+@media (max-width: 640px) { .cast-grid img { height: 170px; } .cast-grid span { font-size: 18px; } }
+
+/* 404: el Capitán Guirilencia guarda la página perdida */
+.p-404 main { min-height: 70vh; display: flex; align-items: center; justify-content: center; gap: 48px; padding: 60px 24px; flex-wrap: wrap; }
+.p-404 .capitan { width: min(420px, 80vw); height: auto; transform: rotate(-3deg); }
+.p-404 .lost { max-width: 460px; }
+.p-404 .lost .lost-big { font-family: 'Lilita One', sans-serif; font-size: clamp(40px, 6vw, 72px); line-height: 1; color: var(--choco); margin: 0 0 14px; text-shadow: 4px 4px 0 var(--peach); }
+.p-404 .lost p { font-size: 20px; font-weight: 600; color: var(--brown); margin: 0 0 22px; }
