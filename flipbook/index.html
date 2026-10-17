@@ -12,7 +12,10 @@
 :root{--cream:#FFFAEB;--foam:#EAF3F1;--choco:#3E130F;--brown:#632F22;--peach:#EBB38C;--sky:#8AD6E3;--sea:#1F6F8B;--mustard:#F0BC5E}
 *{box-sizing:border-box;margin:0}
 html,body{height:100%;overflow:hidden}
-body{font-family:Inter,system-ui,sans-serif;font-weight:500;color:var(--choco);user-select:none;-webkit-user-select:none;background:var(--sky)}
+body{font-family:Inter,system-ui,sans-serif;font-weight:500;color:var(--choco);user-select:none;-webkit-user-select:none;
+  background:repeating-linear-gradient(90deg,rgba(0,0,0,.05) 0 2px,transparent 2px 7px),
+   repeating-linear-gradient(90deg,#b08e66 0 120px,#a98458 120px 240px,#b89870 240px 360px,#a4814f 360px 480px)}
+#stage::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 55%,rgba(62,19,15,.35))}
 /* toldo festoneado arriba y azulejo abajo */
 body::before{content:"";position:fixed;top:0;left:0;right:0;height:34px;z-index:8;pointer-events:none;border-top:3px solid var(--choco);
   background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='34'%3E%3Cpath d='M1.5 0V13A18.5 18.5 0 0 0 38.500 13V0Z' fill='%23EBB38C' stroke='%233E130F' stroke-width='3'/%3E%3Cpath d='M41.500 0V13A18.500 18.500 0 0 0 78.500 13V0Z' fill='%23FFFAEB' stroke='%233E130F' stroke-width='3'/%3E%3C/svg%3E") repeat-x 0 0/80px 34px}
