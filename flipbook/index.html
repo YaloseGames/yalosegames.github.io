@@ -9,21 +9,21 @@
 @font-face{font-family:"Lilita One";src:url("fonts/LilitaOne-Regular.ttf")}
 @font-face{font-family:"Inter";font-weight:500;src:url("fonts/Inter-Medium.ttf")}
 @font-face{font-family:"Inter";font-weight:700;src:url("fonts/Inter-Bold.ttf")}
+:root{--cream:#FFFAEB;--foam:#EAF3F1;--choco:#3E130F;--brown:#632F22;--peach:#EBB38C;--sky:#8AD6E3;--sea:#1F6F8B;--mustard:#F0BC5E}
 *{box-sizing:border-box;margin:0}
 html,body{height:100%;overflow:hidden}
-body{font-family:Inter,system-ui,sans-serif;font-weight:500;color:#fff;user-select:none;-webkit-user-select:none;
-  background:
-   repeating-linear-gradient(90deg,rgba(0,0,0,.05) 0 2px,transparent 2px 7px),
-   repeating-linear-gradient(90deg,#b08e66 0 120px,#a98458 120px 240px,#b89870 240px 360px,#a4814f 360px 480px);}
-body::after{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.35))}
+body{font-family:Inter,system-ui,sans-serif;font-weight:500;color:var(--choco);user-select:none;-webkit-user-select:none;background:var(--sky)}
+/* toldo festoneado arriba y azulejo abajo */
+body::before{content:"";position:fixed;top:0;left:0;right:0;height:34px;z-index:8;pointer-events:none;border-top:3px solid var(--choco);
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='34'%3E%3Cpath d='M1.5 0V13A18.5 18.5 0 0 0 38.500 13V0Z' fill='%23EBB38C' stroke='%233E130F' stroke-width='3'/%3E%3Cpath d='M41.500 0V13A18.500 18.500 0 0 0 78.500 13V0Z' fill='%23FFFAEB' stroke='%233E130F' stroke-width='3'/%3E%3C/svg%3E") repeat-x 0 0/80px 34px}
+body::after{content:"";position:fixed;left:0;right:0;bottom:0;height:38px;z-index:8;pointer-events:none;border-top:3px solid var(--choco);background:url("img/azulejo.jpg") repeat-x 0 0/auto 100%}
 #stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:grab}
 #stage.pan{cursor:grabbing}
 #zoom{transition:transform .25s ease-out}
 #zoom.drag{transition:none}
 #book{position:relative;transition:transform .6s ease-in-out}
-#book::before{content:"";position:absolute;left:0;right:0;bottom:-4px;height:10px;background:rgba(0,0,0,.5);filter:blur(10px)}
-.leaf{position:absolute;left:50%;top:0;transform-origin:left center;transform-style:preserve-3d;
-  transition:transform .85s cubic-bezier(.45,.05,.25,1)}
+#book::before{content:"";position:absolute;left:0;right:0;bottom:-4px;height:10px;background:rgba(62,19,15,.45);filter:blur(10px)}
+.leaf{position:absolute;left:50%;top:0;transform-origin:left center;transform-style:preserve-3d;transition:transform .85s cubic-bezier(.45,.05,.25,1)}
 .leaf.flipped{transform:rotateY(-180deg)}
 .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:#f3efe4;overflow:hidden}
 .face.cover{background:#3E130F;display:grid;place-items:center}
@@ -33,57 +33,62 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;background:rad
 .face::after{content:"";position:absolute;inset:0;pointer-events:none}
 .face.front::after{background:linear-gradient(90deg,rgba(0,0,0,.28),rgba(0,0,0,.06) 6%,transparent 14%)}
 .face.back::after{background:linear-gradient(270deg,rgba(0,0,0,.28),rgba(0,0,0,.06) 6%,transparent 14%)}
-.leaf.moving .face::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.0),rgba(0,0,0,.22));animation:sh .85s ease-in-out}
+.leaf.moving .face::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,0),rgba(0,0,0,.22));animation:sh .85s ease-in-out}
 @keyframes sh{0%,100%{opacity:0}50%{opacity:1}}
-.pill{position:fixed;z-index:10;background:rgba(80,60,40,.62);border-radius:22px;display:flex;align-items:center;color:#fff;backdrop-filter:blur(3px)}
-#bar{top:14px;left:50%;transform:translateX(-50%);padding:0 10px;height:38px;gap:2px}
-#bar button,.pill button{background:none;border:0;color:#fff;width:34px;height:34px;display:grid;place-items:center;cursor:pointer;border-radius:50%}
-#bar button:hover{background:rgba(255,255,255,.18)}
-#bar button:disabled{opacity:.35;cursor:default}
-#bar svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-#bar i{width:1px;height:18px;background:rgba(255,255,255,.3);margin:0 4px}
-#brand{top:10px;left:16px;height:46px}
-#brand img{height:46px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.4))}
-#cnt{top:14px;right:16px;height:34px;padding:0 14px;font:700 14px Inter}
-#side{position:fixed;top:50%;width:42px;height:42px;margin-top:-21px;border-radius:50%;background:rgba(80,60,40,.62);border:0;color:#fff;cursor:pointer;z-index:9;display:grid;place-items:center;font-size:20px}
-#side:disabled{opacity:.25;cursor:default}
-#sl{left:10px}#sr{right:10px}
-#foot{bottom:12px;left:0;right:0;display:flex;justify-content:center;gap:14px;align-items:center;position:fixed;z-index:10}
-.num{min-width:84px;height:30px;padding:0 14px;display:grid;place-items:center;border-radius:15px;background:rgba(80,60,40,.62);font:700 14px Inter}
-#dots{display:flex;gap:7px;padding:9px 16px;border-radius:16px;background:rgba(80,60,40,.62);max-width:60vw;overflow:hidden}
-#dots b{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.45);cursor:pointer;flex:none}
-#dots b.on{background:#fff;transform:scale(1.25)}
-#thumbs{position:fixed;inset:0;z-index:30;background:rgba(40,30,20,.92);overflow:auto;padding:70px 24px 24px;display:none}
+/* interfaz estilo Tourist Trap: borde choco 3px, esquinas cuadradas, sombra dura */
+.card{position:fixed;z-index:10;background:var(--cream);border:3px solid var(--choco);box-shadow:5px 5px 0 var(--choco);display:flex;align-items:center}
+#bar{top:48px;left:50%;transform:translateX(-50%);padding:5px 8px;gap:4px}
+.ib{width:36px;height:36px;display:grid;place-items:center;background:var(--sky);border:3px solid var(--choco);box-shadow:2px 2px 0 var(--choco);cursor:pointer;padding:0}
+.ib:hover{background:var(--mustard)}
+.ib:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--choco)}
+.ib:disabled{opacity:.35;cursor:default;background:var(--foam)}
+.ib svg{width:20px;height:20px;fill:none;stroke:var(--choco);stroke-width:2.6;stroke-linecap:square;stroke-linejoin:miter}
+#bar i{width:3px;height:26px;background:var(--choco);margin:0 4px}
+#brand{top:52px;left:16px;padding:4px 8px;background:var(--cream);transform:rotate(-3deg);cursor:pointer;display:block}
+#brand img{height:44px;display:block}
+#brand:hover{background:var(--mustard)}
+.sticker{position:fixed;z-index:10;background:var(--mustard);border:3px solid var(--choco);box-shadow:3px 3px 0 var(--choco);font:400 17px "Lilita One";letter-spacing:.5px;text-transform:uppercase;padding:3px 12px;color:var(--choco)}
+#cnt{top:54px;right:18px;transform:rotate(3deg)}
+.side{position:fixed;top:50%;width:46px;height:56px;margin-top:-28px;z-index:9}
+.side svg{width:24px;height:24px}
+#sl{left:14px}#sr{right:14px}
+#foot{position:fixed;bottom:52px;left:0;right:0;display:flex;justify-content:center;gap:14px;align-items:center;z-index:10}
+.num{min-width:60px;height:34px;padding:0 12px;display:grid;place-items:center;background:var(--peach);border:3px solid var(--choco);box-shadow:3px 3px 0 var(--choco);font:400 18px "Lilita One"}
+#nl{transform:rotate(-3deg)}#nr{transform:rotate(3deg)}
+#dots{display:flex;gap:8px;padding:9px 14px;background:var(--cream);border:3px solid var(--choco);box-shadow:4px 4px 0 var(--choco);max-width:60vw;overflow:hidden}
+#dots b{width:13px;height:13px;background:var(--foam);border:2px solid var(--choco);cursor:pointer;flex:none}
+#dots b.on{background:var(--sea)}
+#thumbs{position:fixed;inset:0;z-index:30;background:rgba(62,19,15,.94);overflow:auto;padding:70px 24px 24px;display:none}
 #thumbs.on{display:block}
-#thumbs .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px;max-width:1300px;margin:0 auto}
-#thumbs a{display:block;color:#fff;font:700 13px Inter;text-align:center;text-decoration:none}
-#thumbs img{width:100%;display:block;margin-bottom:5px;box-shadow:0 3px 10px rgba(0,0,0,.6);background:#f3efe4}
-#thumbs a.cur img{outline:3px solid #F0BC5E}
-#tclose{position:fixed;top:16px;right:20px;z-index:31;display:none;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.2);color:#fff;border:0;font-size:22px;cursor:pointer}
+#thumbs .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:18px;max-width:1300px;margin:0 auto}
+#thumbs a{display:block;color:var(--mustard);font:400 16px "Lilita One";text-align:center;text-decoration:none}
+#thumbs img{width:100%;display:block;margin-bottom:5px;border:3px solid var(--choco);box-shadow:4px 4px 0 var(--peach);background:#f3efe4}
+#thumbs a.cur img{border-color:var(--mustard);box-shadow:4px 4px 0 var(--mustard)}
+#tclose{position:fixed;top:16px;right:20px;z-index:31;display:none;width:42px;height:42px;font:400 22px "Lilita One"}
 #thumbs.on ~ #tclose{display:block}
-@media (max-width:700px){#brand,#cnt,#side{display:none}#dots{display:none}}
+@media (max-width:700px){#brand,#cnt,.side,#dots{display:none}#bar{top:44px}}
 </style>
 </head>
 <body>
-<div class="pill" id="brand"><img src="img/logo.png" alt="Tourist Trap"></div>
-<div class="pill" id="bar">
-  <button id="zi" title="Acercar"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="M15 15l5 5M10 7v6M7 10h6"/></svg></button>
-  <button id="zo" title="Alejar"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="M15 15l5 5M7 10h6"/></svg></button>
+<a class="card" id="brand" href="https://yalosegames.github.io/tourist-trap.html" title="Volver a la web"><img src="img/logo.png" alt="Tourist Trap"></a>
+<div class="card" id="bar">
+  <button class="ib" id="zi" title="Acercar"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="M15 15l5 5M10 7v6M7 10h6"/></svg></button>
+  <button class="ib" id="zo" title="Alejar"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="M15 15l5 5M7 10h6"/></svg></button>
   <i></i>
-  <button id="bfirst" title="Primera"><svg viewBox="0 0 24 24"><path d="M18 6l-6 6 6 6M8 6v12"/></svg></button>
-  <button id="bprev" title="Anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
-  <button id="bnext" title="Siguiente"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
-  <button id="blast" title="Última"><svg viewBox="0 0 24 24"><path d="M6 6l6 6-6 6M16 6v12"/></svg></button>
+  <button class="ib" id="bfirst" title="Primera"><svg viewBox="0 0 24 24"><path d="M18 6l-6 6 6 6M8 6v12"/></svg></button>
+  <button class="ib" id="bprev" title="Anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button class="ib" id="bnext" title="Siguiente"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+  <button class="ib" id="blast" title="Última"><svg viewBox="0 0 24 24"><path d="M6 6l6 6-6 6M16 6v12"/></svg></button>
   <i></i>
-  <button id="bt" title="Miniaturas"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></svg></button>
-  <button id="bf" title="Pantalla completa"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+  <button class="ib" id="bt" title="Miniaturas"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></svg></button>
+  <button class="ib" id="bf" title="Pantalla completa"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
 </div>
-<div class="pill" id="cnt"></div>
+<div class="sticker" id="cnt"></div>
 <div id="stage"><div id="zoom"><div id="book"></div></div></div>
-<button id="sl" aria-label="Anterior">&#9664;</button><button id="sr" aria-label="Siguiente">&#9654;</button>
-<div id="foot"><div class="num" id="nl"></div><div id="dots" class="pill" style="position:static"></div><div class="num" id="nr"></div></div>
+<button class="ib side" id="sl" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8"/></svg></button><button class="ib side" id="sr" aria-label="Siguiente"><svg viewBox="0 0 24 24"><path d="M9 4l8 8-8 8"/></svg></button>
+<div id="foot"><div class="num" id="nl"></div><div id="dots"></div><div class="num" id="nr"></div></div>
 <div id="thumbs"><div class="grid" id="grid"></div></div>
-<button id="tclose">&#10005;</button>
+<button class="ib" id="tclose">&#10005;</button>
 <script src="pages.js"></script>
 <script>
 (function(){
@@ -112,7 +117,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;background:rad
 
   var pw=0,ph=0;
   function fit(){
-    var aw=innerWidth-(innerWidth>700?150:20),ah=innerHeight-(innerWidth>700?130:110);
+    var aw=innerWidth-(innerWidth>700?150:20),ah=innerHeight-(innerWidth>700?250:220);
     pw=Math.min(aw/2,ah*ratio);ph=pw/ratio;
     book.style.width=(2*pw)+"px";book.style.height=ph+"px";
     for(var i=0;i<L;i++){leaves[i].style.width=pw+"px";leaves[i].style.height=ph+"px"}
