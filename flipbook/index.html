@@ -69,7 +69,12 @@ body::after{content:"";position:fixed;left:0;right:0;bottom:0;height:38px;z-inde
 #thumbs a.cur img{border-color:var(--mustard);box-shadow:4px 4px 0 var(--mustard)}
 #tclose{position:fixed;top:16px;right:20px;z-index:31;display:none;width:42px;height:42px;font:400 22px "Lilita One"}
 #thumbs.on ~ #tclose{display:block}
-@media (max-width:700px){#brand,#cnt,.side,#dots{display:none}#bar{top:44px}}
+#single{display:none;position:relative;background:#f3efe4;border:3px solid var(--choco);box-shadow:6px 6px 0 var(--choco);overflow:hidden}
+#single.on{display:block}
+#single img{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;-webkit-user-drag:none}
+#single.cover{background:var(--choco)}
+#single.cover img{inset:auto;left:50%;top:50%;width:34%;height:auto;transform:translate(-50%,-50%)}
+@media (max-width:700px),(max-height:500px){#brand,#cnt,.side,#dots{display:none}#bar{top:44px}.ib{width:32px;height:32px}}
 </style>
 </head>
 <body>
@@ -87,7 +92,7 @@ body::after{content:"";position:fixed;left:0;right:0;bottom:0;height:38px;z-inde
   <button class="ib" id="bf" title="Pantalla completa"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
 </div>
 <div class="sticker" id="cnt"></div>
-<div id="stage"><div id="zoom"><div id="book"></div></div></div>
+<div id="stage"><div id="zoom"><div id="book"></div><div id="single"><img id="sp" alt=""></div></div></div>
 <button class="ib side" id="sl" aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8"/></svg></button><button class="ib side" id="sr" aria-label="Siguiente"><svg viewBox="0 0 24 24"><path d="M9 4l8 8-8 8"/></svg></button>
 <div id="foot"><div class="num" id="nl"></div><div id="dots"></div><div class="num" id="nr"></div></div>
 <div id="thumbs"><div class="grid" id="grid"></div></div>
@@ -118,9 +123,20 @@ body::after{content:"";position:fixed;left:0;right:0;bottom:0;height:38px;z-inde
   }
   function load(lf){var im=lf.querySelectorAll("img");for(var k=0;k<im.length;k++)if(!im[k].src)im[k].src=im[k].dataset.s}
 
-  var pw=0,ph=0;
+  // móvil en vertical: una página cada vez (sv); en el resto, libro a doble página
+  var pw=0,ph=0,sv=false,P=1,single=$("single"),sp=$("sp");
   function fit(){
-    var aw=innerWidth-(innerWidth>700?150:20),ah=innerHeight-(innerWidth>700?250:220);
+    var cmp=innerWidth<=700||innerHeight<=500;
+    sv=innerWidth<=700&&innerHeight>innerWidth;
+    var ch=cmp?170:250;
+    if(sv){
+      pw=Math.min(innerWidth-24,(innerHeight-ch)*ratio);ph=pw/ratio;
+      single.style.width=pw+"px";single.style.height=ph+"px";
+      book.style.display="none";single.classList.add("on");
+      return;
+    }
+    book.style.display="";single.classList.remove("on");
+    var aw=innerWidth-(innerWidth>700?150:20),ah=innerHeight-ch;
     pw=Math.min(aw/2,ah*ratio);ph=pw/ratio;
     book.style.width=(2*pw)+"px";book.style.height=ph+"px";
     for(var i=0;i<L;i++){leaves[i].style.width=pw+"px";leaves[i].style.height=ph+"px"}
@@ -130,12 +146,21 @@ body::after{content:"";position:fixed;left:0;right:0;bottom:0;height:38px;z-inde
   function zs(){for(var i=0;i<L;i++)if(!leaves[i].classList.contains("moving"))leaves[i].style.zIndex=i<f?i:L-i}
 
   function label(){
+    if(sv){
+      $("cnt").textContent=Math.min(P,N)+" / "+N;
+      $("nl").textContent=P>N?"":P;$("nl").style.visibility=P>N?"hidden":"visible";$("nr").style.display="none";
+      var hs="#p="+P;if(location.hash!==hs)history.replaceState(null,"",hs);
+      var sa=document.querySelectorAll("#grid a");for(var j=0;j<sa.length;j++)sa[j].className=(j+1===P)?"cur":"";
+      $("bprev").disabled=$("bfirst").disabled=$("sl").disabled=P===1;
+      $("bnext").disabled=$("blast").disabled=$("sr").disabled=P===N+1;
+      return;
+    }
     var lo=2*f,hi=2*f+1,t;
     if(f===0)t="1";else if(lo>N)t=""+N;else if(hi>N)t=""+lo;else t=lo+"-"+hi;
     $("cnt").textContent=t+" / "+N;
     var back=lo>N;
     $("nl").textContent=lo;$("nr").textContent=hi;
-    $("nl").style.visibility=(f===0||back)?"hidden":"visible";$("nr").style.visibility=(hi>N)?"hidden":"visible";
+    $("nl").style.visibility=(f===0||back)?"hidden":"visible";$("nr").style.display="";$("nr").style.visibility=(hi>N)?"hidden":"visible";
     var h="#p="+(f===0?1:(back?N+1:lo));if(location.hash!==h)history.replaceState(null,"",h);
     var d=document.querySelectorAll("#dots b");for(var k=0;k<d.length;k++)d[k].className=(k===f)?"on":"";
     var a=document.querySelectorAll("#grid a");for(k=0;k<a.length;k++){var p=k+1;a[k].className=(p===lo||p===hi||(f===0&&p===1))?"cur":""}
@@ -165,7 +190,17 @@ body::after{content:"";position:fixed;left:0;right:0;bottom:0;height:38px;z-inde
     for(var i=0;i<L;i++)leaves[i].classList.toggle("flipped",i<f);
     zs();shift();label();preload();
   }
-  function next(){setF(f+1)}function prev(){setF(f-1)}
+  function next(){sv?goP(P+1):setF(f+1)}function prev(){sv?goP(P-1):setF(f-1)}
+  function goP(p){P=Math.max(1,Math.min(N+1,p));showP()}
+  function showP(){
+    f=pageToF(P);
+    single.classList.toggle("cover",P>N);
+    sp.src=P>N?"img/logo-yalose.png":src(P);
+    [P-1,P+1].forEach(function(i){if(i>=1&&i<=N)(new Image).src=src(i)});
+    label();
+  }
+  function toF(t){sv?goP(t===0?1:2*t):setF(t)}   // t = estado de hoja (spread), en vertical va a la página equivalente
+  function go(p){sv?goP(p):setF(pageToF(p))}
 
   // zoom y arrastre
   var z=1,px=0,py=0,zoom=$("zoom"),stage=$("stage");
@@ -190,23 +225,32 @@ body::after{content:"";position:fixed;left:0;right:0;bottom:0;height:38px;z-inde
     var dx=e.clientX-sx;
     if(z===1){
       if(Math.abs(dx)>50){dx<0?next():prev()}
-      else if(!moved){var r=book.getBoundingClientRect();
+      else if(!moved){var r=(sv?single:book).getBoundingClientRect();
         if(e.clientX>r.left+r.width/2){ if(!(f===0&&e.clientX<r.left+pw/2*0)) next(); } else prev();}
     }
   });
 
   $("bnext").onclick=$("sr").onclick=next;$("bprev").onclick=$("sl").onclick=prev;
-  $("bfirst").onclick=function(){setF(0)};$("blast").onclick=function(){setF(maxF)};
+  $("bfirst").onclick=function(){toF(0)};$("blast").onclick=function(){toF(maxF)};
   document.addEventListener("keydown",function(e){
     var k=e.key;
     if(k==="ArrowRight"||k==="PageDown")next();else if(k==="ArrowLeft"||k==="PageUp")prev();
-    else if(k==="Home")setF(0);else if(k==="End")setF(maxF);
+    else if(k==="Home")toF(0);else if(k==="End")toF(maxF);
     else if(k==="Escape")$("thumbs").classList.remove("on");
     else if(k==="+"||k==="=")$("zi").onclick();else if(k==="-")$("zo").onclick();
     else if(k==="f"||k==="F")fs();
   });
-  addEventListener("hashchange",function(){var m=/#p=(\d+)/.exec(location.hash);if(m&&pageToF(+m[1])!==f)setF(pageToF(+m[1]))});
-  addEventListener("resize",fit);
+  addEventListener("hashchange",function(){var m=/#p=(\d+)/.exec(location.hash);if(m)go(+m[1])});
+  var wasSv=sv;
+  addEventListener("resize",function(){
+    fit();
+    if(sv!==wasSv){
+      timers.forEach(clearTimeout);timers=[];
+      if(sv)goP(f===0?1:2*f);else instant(pageToF(P));
+      wasSv=sv;
+    }
+    applyZ();
+  });
 
   var dots=$("dots");
   for(var d=0;d<=maxF;d++){var b=document.createElement("b");b.dataset.f=d;b.onclick=function(e){e.stopPropagation();setF(+this.dataset.f)};dots.appendChild(b)}
@@ -215,7 +259,7 @@ body::after{content:"";position:fixed;left:0;right:0;bottom:0;height:38px;z-inde
   for(var p=1;p<=N;p++){
     var a=document.createElement("a");a.href="#p="+p;a.dataset.p=p;
     a.innerHTML='<img loading="lazy" src="thumbs/'+String(p).padStart(3,"0")+'.jpg" alt="">'+p;
-    a.onclick=function(e){e.preventDefault();$("thumbs").classList.remove("on");setF(pageToF(+this.dataset.p))};
+    a.onclick=function(e){e.preventDefault();$("thumbs").classList.remove("on");go(+this.dataset.p)};
     g.appendChild(a);
   }
   $("bt").onclick=function(){$("thumbs").classList.add("on")};
@@ -225,8 +269,9 @@ body::after{content:"";position:fixed;left:0;right:0;bottom:0;height:38px;z-inde
   ["bar","brand","cnt","foot"].forEach(function(i){$(i).addEventListener("pointerdown",function(e){e.stopPropagation()})});
   $("sl").addEventListener("pointerdown",function(e){e.stopPropagation()});$("sr").addEventListener("pointerdown",function(e){e.stopPropagation()});
 
-  fit();
-  var m=/#p=(\d+)/.exec(location.hash);instant(m?pageToF(+m[1]):0);
+  fit();wasSv=sv;
+  var m=/#p=(\d+)/.exec(location.hash),p0=m?+m[1]:1;
+  if(sv)goP(p0);else instant(pageToF(p0));
 })();
 </script>
 </body>
