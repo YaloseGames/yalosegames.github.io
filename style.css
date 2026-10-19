@@ -132,13 +132,25 @@ main { max-width: 1400px; margin: 0 auto; }
 .minigames + .block-title { margin-top: 90px; }
 
 /* ---------- Equipo ---------- */
-.team { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; }
-.team li { padding: 22px; display: flex; flex-direction: column; gap: 6px; min-height: 120px; justify-content: flex-end; border: 3px solid var(--choco); }
-.team strong { font-family: 'Lilita One', sans-serif; font-size: 18px; line-height: 1.15; }
+/* 7 fichas: 3 arriba (4 columnas cada una) y 4 abajo (3 columnas cada una) */
+.team { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; }
+.team li { grid-column: span 4; padding: 22px; display: flex; flex-direction: column; gap: 6px; min-height: 120px; justify-content: flex-end; border: 3px solid var(--choco); transition: transform 0.18s ease, box-shadow 0.18s ease; }
+.team li:nth-child(n+4) { grid-column: span 3; }
+.team li a { flex: 1; display: flex; flex-direction: column; gap: 6px; justify-content: flex-end; color: inherit; text-decoration: none; }
+.team li:hover, .team li:focus-within { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--choco); }
+.team li:hover strong, .team li:focus-within strong { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 3px; }
+.team strong { font-family: 'Lilita One', sans-serif; font-size: 20px; line-height: 1.15; }
 .team span { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.8; }
 .team .c0 { background: var(--sky); }
 .team .c1 { background: var(--peach); }
 .team .c2 { background: var(--foam); }
+/* En pantallas medianas 2 por fila y en móvil 1 por fila */
+@media (max-width: 1000px) {
+  .team li:nth-child(n) { grid-column: span 6; }
+}
+@media (max-width: 620px) {
+  .team li:nth-child(n) { grid-column: span 12; }
+}
 
 /* ---------- Pie ---------- */
 .footer { margin-top: 80px; background: var(--choco); color: var(--cream); padding: 30px 64px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 13px; font-weight: 800; }
